@@ -23,22 +23,22 @@
                   <Font size="13.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="SignUpFirstName" focusColor="#2ed2ff" labelFloat="true" layoutX="286.0" layoutY="90.0" prefHeight="25.0" prefWidth="228.0" promptText="First Name" unFocusColor="#30d6ff80">
+            <JFXTextField fx:id="SignUpFirstName" focusColor="#2ed2ff" focusTraversable="false" labelFloat="true" layoutX="286.0" layoutY="90.0" prefHeight="25.0" prefWidth="228.0" promptText="First Name" unFocusColor="#30d6ff80">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="SignUpEmailAddress" focusColor="#2ed2ff" labelFloat="true" layoutX="33.0" layoutY="190.0" prefHeight="25.0" prefWidth="228.0" promptText="Email Address" unFocusColor="#30d6ff80">
+            <JFXTextField fx:id="SignUpEmailAddress" focusColor="#2ed2ff" focusTraversable="false" labelFloat="true" layoutX="33.0" layoutY="190.0" prefHeight="25.0" prefWidth="228.0" promptText="Email Address" unFocusColor="#30d6ff80">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="SignUpLastName" focusColor="#2ed2ff" labelFloat="true" layoutX="539.0" layoutY="90.0" prefHeight="25.0" prefWidth="228.0" promptText="Last Name" unFocusColor="#30d6ff80">
+            <JFXTextField fx:id="SignUpLastName" focusColor="#2ed2ff" focusTraversable="false" labelFloat="true" layoutX="539.0" layoutY="90.0" prefHeight="25.0" prefWidth="228.0" promptText="Last Name" unFocusColor="#30d6ff80">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="SignUpDateofBirth" focusColor="#2ed2ff" labelFloat="true" layoutX="286.0" layoutY="190.0" prefHeight="25.0" prefWidth="228.0" promptText="Date of Birth ( DD-MM-YYYY )" unFocusColor="#30d6ff80">
+            <JFXTextField fx:id="SignUpDateofBirth" focusColor="#2ed2ff" focusTraversable="false" labelFloat="true" layoutX="286.0" layoutY="190.0" prefHeight="25.0" prefWidth="228.0" promptText="Date of Birth ( DD-MM-YYYY )" unFocusColor="#30d6ff80">
                <font>
                   <Font size="13.0" />
                </font>
@@ -48,7 +48,7 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <JFXRadioButton fx:id="SignUpPatientRadioButton" layoutX="284.0" layoutY="294.0" minHeight="29.0" text="Patient" textAlignment="CENTER" textFill="#464646">
+            <JFXRadioButton fx:id="SignUpPatientRadioButton" focusTraversable="false" layoutX="284.0" layoutY="294.0" minHeight="29.0" text="Patient" textAlignment="CENTER" textFill="#464646">
                <font>
                   <Font size="13.0" />
                </font>
@@ -56,12 +56,12 @@
                   <ToggleGroup fx:id="SignUpRole" />
                </toggleGroup>
             </JFXRadioButton>
-            <JFXRadioButton fx:id="SignUpDoctorRadioButton" layoutX="414.0" layoutY="294.0" minHeight="29.0" stylesheets="@../Resources/Medi_collab_Stylesheet.css" text="Doctor" textAlignment="CENTER" textFill="#464646" toggleGroup="$SignUpRole">
+            <JFXRadioButton fx:id="SignUpDoctorRadioButton" focusTraversable="false" layoutX="414.0" layoutY="294.0" minHeight="29.0" stylesheets="@../Resources/Medi_collab_Stylesheet.css" text="Doctor" textAlignment="CENTER" textFill="#464646" toggleGroup="$SignUpRole">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXRadioButton>
-            <JFXRadioButton fx:id="SignUpMedicalStaffRadioButton" layoutX="544.0" layoutY="294.0" minHeight="29.0" text="Medical Staff" textAlignment="CENTER" textFill="#464646" toggleGroup="$SignUpRole">
+            <JFXRadioButton fx:id="SignUpMedicalStaffRadioButton" focusTraversable="false" layoutX="544.0" layoutY="294.0" minHeight="29.0" text="Medical Staff" textAlignment="CENTER" textFill="#464646" toggleGroup="$SignUpRole">
                <font>
                   <Font size="13.0" />
                </font>
@@ -71,39 +71,44 @@
                   <Font size="11.0" />
                </font>
             </Label>
-            <JFXPasswordField fx:id="SignUpPassword" focusColor="#2ed2ff" labelFloat="true" layoutX="160.0" layoutY="140.0" prefHeight="25.0" prefWidth="228.0" promptText="Password" unFocusColor="#30d6ff80">
+            <JFXPasswordField fx:id="SignUpPassword" focusColor="#2ed2ff" focusTraversable="false" labelFloat="true" layoutX="160.0" layoutY="140.0" prefHeight="25.0" prefWidth="228.0" promptText="Password" unFocusColor="#30d6ff80">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXPasswordField>
-            <JFXPasswordField fx:id="SignUpConfirmPassword" focusColor="#2ed2ff" labelFloat="true" layoutX="413.0" layoutY="140.0" prefHeight="25.0" prefWidth="228.0" promptText="Confirm Password" unFocusColor="#30d6ff80">
+            <JFXPasswordField fx:id="SignUpConfirmPassword" focusColor="#2ed2ff" focusTraversable="false" labelFloat="true" layoutX="413.0" layoutY="140.0" prefHeight="25.0" prefWidth="228.0" promptText="Confirm Password" unFocusColor="#30d6ff80">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXPasswordField>
-            <JFXButton fx:id="SignUpSignUpButton" alignment="CENTER" buttonType="RAISED" layoutX="318.0" layoutY="354.0" onAction="#handleSignUpSignUpButton" prefHeight="32.0" prefWidth="165.0" ripplerFill="BLACK" text="Sign Up" textAlignment="CENTER" textFill="WHITE">
+            <JFXButton fx:id="SignUpSignUpButton" alignment="CENTER" buttonType="RAISED" focusTraversable="false" layoutX="299.0" layoutY="354.0" onAction="#handleSignUpSignUpButton" prefHeight="32.0" prefWidth="100.0" ripplerFill="BLACK" text="Sign Up" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <JFXTextField fx:id="SignUpAddress" focusColor="#2ed2ff" labelFloat="true" layoutX="33.0" layoutY="240.0" prefHeight="29.0" prefWidth="734.0" promptText="Address" unFocusColor="#30d6ff80">
+            <JFXTextField fx:id="SignUpAddress" focusColor="#2ed2ff" focusTraversable="false" labelFloat="true" layoutX="33.0" layoutY="240.0" prefHeight="29.0" prefWidth="734.0" promptText="Address" unFocusColor="#30d6ff80">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="SignUpContactNo" focusColor="#2ed2ff" labelFloat="true" layoutX="539.0" layoutY="190.0" prefHeight="25.0" prefWidth="228.0" promptText="Contact No." unFocusColor="#30d6ff80">
+            <JFXButton fx:id="SignUpCancelButton" alignment="CENTER" buttonType="RAISED" focusTraversable="false" layoutX="401.0" layoutY="354.0" onAction="#handleSignUpCancelButton" prefHeight="32.0" prefWidth="100.0" ripplerFill="BLACK" text="Cancel" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXTextField fx:id="SignUpContactNo" focusColor="#2ed2ff" focusTraversable="false" labelFloat="true" layoutX="539.0" layoutY="190.0" prefHeight="25.0" prefWidth="228.0" promptText="Contact No." unFocusColor="#30d6ff80">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXTextField>
          </children>
       </AnchorPane>
-      <Label fx:id="CloseLabel" alignment="CENTER" layoutX="970.0" layoutY="14.0" onMouseClicked="#handleCloseLabelMouseClicked" prefHeight="20.0" prefWidth="20.0" text="X" textAlignment="CENTER" textFill="#464646">
+      <Label fx:id="CloseLabel" alignment="CENTER" focusTraversable="false" layoutX="970.0" layoutY="14.0" onMouseClicked="#handleCloseLabelMouseClicked" prefHeight="20.0" prefWidth="20.0" text="X" textAlignment="CENTER" textFill="#464646">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="MinimizeLabel" alignment="CENTER" layoutX="940.0" layoutY="14.0" onMouseClicked="#handleMinimizeLabelClicked" prefHeight="20.0" prefWidth="20.0" text="—" textAlignment="CENTER" textFill="#464646">
+      <Label fx:id="MinimizeLabel" alignment="CENTER" focusTraversable="false" layoutX="940.0" layoutY="14.0" onMouseClicked="#handleMinimizeLabelClicked" prefHeight="20.0" prefWidth="20.0" text="—" textAlignment="CENTER" textFill="#464646">
          <font>
             <Font size="14.0" />
          </font>

@@ -1,12 +1,14 @@
 #CloseLabel {
     -fx-alignment: CENTER;
     -fx-background-color: TRANSPARENT;
-    -fx-background-radius: 8;
+    -fx-background-radius: 10;
+    /*-fx-border-color: #a7fafa;*/
+    /*-fx-border-radius: 10;*/
+    /*-fx-border-width: 1;*/
     -fx-font-size: 11;
-    -fx-font-weight: 900;
+    -fx-font-weight: BOLD;
     -fx-pref-height: 16;
     -fx-pref-width: 16;
-    -fx-text-fill: #464646;
 }
 
 #CloseLabel:hover {
@@ -15,18 +17,57 @@
 
 #CloseLabel:pressed {
     -fx-background-color: #2ed2ff;
+    /*-fx-border-color: #2ed2ff;*/
     -fx-text-fill: WHITE;
+}
+
+#MainMenuAppointmentListButton {
+    -fx-background-color: #2ed2ff;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+}
+
+#MainMenuMyProfileButton {
+    -fx-background-color: #2ed2ff;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+}
+
+#MainMenuPatientSetAppointmentButton {
+    -fx-background-color: #2ed2ff;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+}
+
+#MainMenuPrescriptionButton {
+    -fx-background-color: #2ed2ff;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+}
+
+#MainMenuTestResultButton {
+    -fx-background-color: #2ed2ff;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+}
+
+#MainMenuSignOutButton {
+    -fx-background-color: #2ed2ff;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
 }
 
 #MinimizeLabel {
     -fx-alignment: CENTER;
     -fx-background-color: TRANSPARENT;
-    -fx-background-radius: 8;
+    -fx-background-radius: 10;
+    /*-fx-border-color: #a7fafa;*/
+    /*-fx-border-radius: 10;*/
+    /*-fx-border-width: 1;*/
     -fx-font-size: 11;
-    -fx-font-weight: 900;
+    -fx-font-weight: BOLD;
     -fx-pref-height: 16;
     -fx-pref-width: 16;
-    -fx-text-fill: #464646;
 }
 
 #MinimizeLabel:hover {
@@ -35,12 +76,8 @@
 
 #MinimizeLabel:pressed {
     -fx-background-color: #2ed2ff;
+    /*-fx-border-color: #2ed2ff;*/
     -fx-text-fill: WHITE;
-}
-
-#SignInForgotPasswordHyperlink {
-    -fx-font-size: 11;
-    -fx-text-fill: #464646;
 }
 
 #SignInForgotPasswordHyperlink:hover {
@@ -70,10 +107,16 @@
     -fx-border-radius: 16;
 }
 
-#SignUpSignUpButton {
-    -fx-background-radius: 16;
+#SignUpCancelButton {
+    -fx-background-radius: 0 16 16 0;
     -fx-background-color: #2ed2ff;
-    -fx-border-radius: 16;
+    -fx-border-radius: 0 16 16 0;
+}
+
+#SignUpSignUpButton {
+    -fx-background-radius: 16 0 0 16;
+    -fx-background-color: #2ed2ff;
+    -fx-border-radius: 16 0 0 16;
 }
 
 #SignUpSignUpPane {
@@ -89,36 +132,27 @@
 #UserProfileAddressLabel {
     -fx-background-color: #a7fafa;
     -fx-background-radius: 10 0 0 10;
-    -fx-text-fill: #464646;
-    -fx-alignment: CENTER-LEFT;
 }
 
 #UserProfileAddressInfoLabel {
     -fx-background-color: #a7fafa;
     -fx-background-radius: 0 10 10 0;
-    -fx-text-fill: #464646;
-    -fx-alignment: CENTER-LEFT;
 }
 
 #UserProfileAgeLabel {
     -fx-background-color: #a7fafa;
     -fx-background-radius: 10 0 0 10;
-    -fx-text-fill: #464646;
-    -fx-alignment: CENTER-LEFT;
 }
 
 #UserProfileAgeInfoLabel {
     -fx-background-color: #a7fafa;
     -fx-background-radius: 0 10 10 0;
-    -fx-text-fill: #464646;
-    -fx-alignment: CENTER-LEFT;
 }
 
 #UserProfileChangePicButton {
     -fx-background-color: TRANSPARENT;
     -fx-background-radius: 16;
     -fx-border-radius: 16;
-    -fx-focus-traversable: FALSE;
     -fx-font-size: 12;
     -fx-text-fill: #464646;
 }
@@ -130,66 +164,51 @@
 #UserProfileContactNoLabel {
     -fx-background-color: #a7fafa;
     -fx-background-radius: 10 0 0 10;
-    -fx-text-fill: #464646;
-    -fx-alignment: CENTER-LEFT;
 }
 
 #UserProfileContactNoInfoLabel {
     -fx-background-color: #a7fafa;
     -fx-background-radius: 0 10 10 0;
-    -fx-text-fill: #464646;
-    -fx-alignment: CENTER-LEFT;
 }
 
 #UserProfileEmailLabel {
     -fx-background-color: #a7fafa;
     -fx-background-radius: 10 0 0 10;
-    -fx-text-fill: #464646;
-    -fx-alignment: CENTER-LEFT;
 }
 
 #UserProfileEmailInfoLabel {
     -fx-background-color: #a7fafa;
     -fx-background-radius: 0 10 10 0;
-    -fx-text-fill: #464646;
-    -fx-alignment: CENTER-LEFT;
 }
 
 #UserProfileGoBackButton {
-    -fx-background-color: TRANSPARENT;
+    -fx-background-color: #2ed2ff;
     -fx-background-radius: 16;
     -fx-border-radius: 16;
-    -fx-focus-traversable: FALSE;
-    -fx-font-size: 11;
-    -fx-text-fill: #464646;
+}
+
+#UserProfileGoBackButton:pressed {
+
 }
 
 #UserProfileNameLabel {
-    -fx-alignment: CENTER-LEFT;
     -fx-background-color: #a7fafa;
     -fx-background-radius: 10 0 0 10;
-    -fx-text-fill: #464646;
 }
 
 #UserProfileNameInfoLabel {
     -fx-background-color: #a7fafa;
     -fx-background-radius: 0 10 10 0;
-    -fx-text-fill: #464646;
-    -fx-alignment: CENTER-LEFT;
 }
 
 #UserProfileUsernameLabel {
-    -fx-alignment: CENTER-LEFT;
     -fx-background-color: #a7fafa;
     -fx-background-radius: 10 0 0 10;
-    -fx-text-fill: #464646;
 }
 
 #UserProfileUsernameInfoLabel {
     -fx-background-color: #a7fafa;
     -fx-background-radius: 0 10 10 0;
-    -fx-text-fill: #464646;
-    -fx-alignment: CENTER-LEFT;
 }
 
 .jfx-radio-button {

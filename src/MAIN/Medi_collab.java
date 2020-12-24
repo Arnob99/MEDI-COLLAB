@@ -22,7 +22,9 @@ import java.sql.*;
 import java.util.Optional;
 
 public class Medi_collab extends Application {
-    public static boolean admin_logged_in;
+    public static boolean admin_logged_in = false;
+    public static ResultSet User_Info_Resultset = null;
+    public static String stylesheetaddress = "/Resources/Medi_collab_Stylesheet.css";
 //    public static String dbusername, dbpassword;
 
     @Override
@@ -30,7 +32,7 @@ public class Medi_collab extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("Sign_In.fxml"));
 
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/Resources/Medi_collab_Stylesheet.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource(Medi_collab.stylesheetaddress).toExternalForm());
         scene.setFill(Color.TRANSPARENT);
 
         stage.initStyle(StageStyle.TRANSPARENT);
@@ -68,6 +70,8 @@ public class Medi_collab extends Application {
 
                     statement.executeQuery("INSERT INTO ADMIN_TABLE " +
                             "VALUES ('admin', 'password')");
+
+                    statement.executeQuery("DROP TABLE USERS_TABLE");
 
                     statement.executeQuery("CREATE TABLE USERS_TABLE (" +
                             "USERNAME VARCHAR2(20)," +

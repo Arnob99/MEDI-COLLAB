@@ -64,10 +64,13 @@ public class Sign_In_Controller {
     public void handleSignInLoginButton(ActionEvent actionEvent) throws IOException {
         signinusername = SignInUsernameTextField.getText();
         signinpassword = SignInPasswordTextField.getText();
+
         Medi_collab.admin_logged_in = false;
+
         boolean alright = false;
         Statement statement = null;
         ResultSet resultSet = null;
+        String role = "";
 
         try {
             statement = Medi_collab.connection().createStatement();
@@ -77,7 +80,7 @@ public class Sign_In_Controller {
                     "WHERE USERNAME = '" + signinusername + "'");
 
             if(resultSet.next()) {
-                if (resultSet.getString(2).equals(signinpassword)) {
+                if (resultSet.getString("PASSWORD").equals(signinpassword)) {
                     Medi_collab.admin_logged_in = true;
                     alright = true;
                 }
@@ -90,8 +93,10 @@ public class Sign_In_Controller {
                         "WHERE USERNAME = '" + signinusername + "'");
 
                 if(resultSet.next()){
-                    if(resultSet.getString(2).equals(signinpassword))
+                    if(resultSet.getString("PASSWORD").equals(signinpassword)) {
                         alright = true;
+                        role = resultSet.getString("ROLE");
+                    }
                     else
                         SignInNotifyLabel.setText("username or password is incorrect");
                 }
@@ -104,21 +109,18 @@ public class Sign_In_Controller {
         }
 
         if(alright){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("User_Profile.fxml"));
+            Medi_collab.User_Info_Resultset = resultSet;
 
-            Parent root = loader.load();
+            Parent root = FXMLLoader.load(getClass().getResource("Main_Menu_" + role + ".fxml"));
 
             Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
 
             Scene scene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
-            scene.getStylesheets().add(getClass().getResource("/Resources/Medi_collab_Stylesheet.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource(Medi_collab.stylesheetaddress).toExternalForm());
             scene.setFill(Color.TRANSPARENT);
 
             stage.setScene(scene);
             stage.show();
-
-            User_Profile_Controller user_profile_controller = loader.getController();
-            user_profile_controller.ShowUserInfo(resultSet);
         }
     }
 
@@ -128,7 +130,7 @@ public class Sign_In_Controller {
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
 
         Scene scene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
-        scene.getStylesheets().add(getClass().getResource("/Resources/Medi_collab_Stylesheet.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource(Medi_collab.stylesheetaddress).toExternalForm());
         scene.setFill(Color.TRANSPARENT);
 
         stage.setScene(scene);

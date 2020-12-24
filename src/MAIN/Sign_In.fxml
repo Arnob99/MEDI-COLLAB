@@ -22,12 +22,12 @@
                   <Font size="13.0" />
                </font>
             </JFXTextField>
-            <JFXPasswordField fx:id="SignInPasswordTextField" focusColor="#2ed2ff" labelFloat="true" layoutX="48.0" layoutY="170.0" prefHeight="26.0" prefWidth="228.0" promptText="password" unFocusColor="#30d6ff80">
+            <JFXPasswordField fx:id="SignInPasswordTextField" focusColor="#2ed2ff" focusTraversable="false" labelFloat="true" layoutX="48.0" layoutY="170.0" prefHeight="26.0" prefWidth="228.0" promptText="password" unFocusColor="#30d6ff80">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXPasswordField>
-            <Hyperlink fx:id="SignInForgotPasswordHyperlink" alignment="CENTER" contentDisplay="CENTER" layoutX="115.0" layoutY="334.0" onAction="#handleSignInForgotPasswordHyperlinkOnAction" text="Forgot Password?" textFill="#464646" underline="true">
+            <Hyperlink fx:id="SignInForgotPasswordHyperlink" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="115.0" layoutY="334.0" onAction="#handleSignInForgotPasswordHyperlinkOnAction" text="Forgot Password?" textFill="#464646" underline="true">
                <font>
                   <Font size="11.0" />
                </font>
@@ -56,19 +56,19 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <JFXButton fx:id="SignInSignUpButton" buttonType="RAISED" layoutX="26.0" layoutY="226.0" onAction="#handleSignInSignUpButton" prefHeight="32.0" prefWidth="165.0" ripplerFill="BLACK" text="Sign Up" textFill="WHITE">
+            <JFXButton fx:id="SignInSignUpButton" buttonType="RAISED" focusTraversable="false" layoutX="26.0" layoutY="226.0" onAction="#handleSignInSignUpButton" prefHeight="32.0" prefWidth="165.0" ripplerFill="BLACK" text="Sign Up" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </JFXButton>
          </children>
       </AnchorPane>
-      <Label fx:id="CloseLabel" alignment="CENTER" layoutX="970.0" layoutY="14.0" onMouseClicked="#handleCloseLabelMouseClicked" prefHeight="20.0" prefWidth="20.0" text="X" textAlignment="CENTER" textFill="#464646">
+      <Label fx:id="CloseLabel" alignment="CENTER" layoutX="970.0" layoutY="14.0" onMouseClicked="#handleCloseLabelMouseClicked" text="X" textAlignment="CENTER" textFill="#464646">
          <font>
-            <Font size="14.0" />
+            <Font size="11.0" />
          </font>
       </Label>
-      <Label fx:id="MinimizeLabel" alignment="CENTER" layoutX="940.0" layoutY="14.0" onMouseClicked="#handleMinimizeLabelClicked" prefHeight="20.0" prefWidth="20.0" text="—" textAlignment="CENTER" textFill="#464646">
+      <Label fx:id="MinimizeLabel" alignment="CENTER" layoutX="940.0" layoutY="14.0" onMouseClicked="#handleMinimizeLabelClicked" prefHeight="16.0" prefWidth="16.0" text="—" textAlignment="CENTER" textFill="#464646">
          <font>
             <Font size="14.0" />
          </font>

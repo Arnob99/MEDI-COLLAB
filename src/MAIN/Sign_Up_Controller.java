@@ -35,10 +35,6 @@ public class Sign_Up_Controller {
     @FXML
     private JFXTextField SignUpUsername;
     @FXML
-    private Label CloseLabel;
-    @FXML
-    private Label MinimizeLabel;
-    @FXML
     private JFXPasswordField SignUpConfirmPassword;
     @FXML
     private JFXRadioButton SignUpDoctorRadioButton;
@@ -55,8 +51,6 @@ public class Sign_Up_Controller {
     @FXML
     private JFXPasswordField SignUpPassword;
     @FXML
-    private JFXButton SignUpSignUpButton;
-    @FXML
     private JFXRadioButton SignUpPatientRadioButton;
 
     public String username, contact, address, conpass, dob, email, fname, lname, pass, role;
@@ -69,6 +63,19 @@ public class Sign_Up_Controller {
 
     public void handleMinimizeLabelClicked(MouseEvent mouseEvent) {
         ((Stage)((Node)mouseEvent.getSource()).getScene().getWindow()).setIconified(true);
+    }
+
+    public void handleSignUpCancelButton(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Sign_In.fxml"));
+
+        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+
+        Scene scene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
+        scene.getStylesheets().add(getClass().getResource(Medi_collab.stylesheetaddress).toExternalForm());
+        scene.setFill(Color.TRANSPARENT);
+
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void handleSignUpSignUpButton(ActionEvent actionEvent) throws IOException {
@@ -143,7 +150,7 @@ public class Sign_Up_Controller {
         else if(SignUpDoctorRadioButton.isSelected())
             role = SignUpDoctorRadioButton.getText();
         else if(SignUpMedicalStaffRadioButton.isSelected())
-            role = SignUpMedicalStaffRadioButton.getText();
+            role = "Staff";
         else if(alright) {
             SignUpNotifyLabel.setText("You must fill up all the fields.");
             alright = false;
@@ -162,14 +169,6 @@ public class Sign_Up_Controller {
         }
 
         if(alright){
-            System.out.println(username);
-            System.out.println(pass + " " + conpass);
-            System.out.println(fname + " " + lname);
-            System.out.println(dob);
-            System.out.println(email);
-            System.out.println(role);
-            System.out.println(address);
-            System.out.println(contact);
             try {
                 statement.executeQuery("INSERT INTO USERS_TABLE VALUES (" +
                         "'" + username + "', " +
@@ -195,7 +194,7 @@ public class Sign_Up_Controller {
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
             Scene scene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
-            scene.getStylesheets().add(getClass().getResource("/Resources/Medi_collab_Stylesheet.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource(Medi_collab.stylesheetaddress).toExternalForm());
             scene.setFill(Color.TRANSPARENT);
 
             stage.setScene(scene);

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MAIN.Main_Menu_Doctor_Controller">
+   <children>
+      <Label fx:id="CloseLabel" layoutX="970.0" layoutY="14.0" onMouseClicked="#handleCloseLabel" text="X" />
+      <Label fx:id="MinimizeLabel" layoutX="940.0" layoutY="14.0" onMouseClicked="#handleMinimizeLabel" text="—" />
+      <Label layoutX="402.0" layoutY="14.0" text="Medi-Collab" textFill="#464646">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="MainMenuMyProfileButton" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="14.0" onAction="#handleMainMenuMyProfileButton" prefHeight="32.0" prefWidth="100.0" ripplerFill="BLACK" text="My Profile" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="MainMenuAppointmentListButton" buttonType="RAISED" focusTraversable="false" layoutX="402.0" layoutY="189.0" onAction="#handleMainMenuAppointmentListButton" prefHeight="32.0" prefWidth="196.0" ripplerFill="BLACK" text="Appointment List" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="MainMenuPrescriptionButton" buttonType="RAISED" focusTraversable="false" layoutX="402.0" layoutY="234.0" onAction="#handleMainMenuPrescriptionButton" prefHeight="32.0" prefWidth="196.0" ripplerFill="BLACK" text="Prescription" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="MainMenuTestResultButton" buttonType="RAISED" focusTraversable="false" layoutX="402.0" layoutY="279.0" onAction="#handleMainMenuTestResultButton" prefHeight="32.0" prefWidth="196.0" ripplerFill="BLACK" text="Test Result" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="MainMenuSignOutButton" buttonType="RAISED" focusTraversable="false" layoutX="450.0" layoutY="454.0" onAction="#handleMainMenuSignOutButton" prefHeight="32.0" prefWidth="100.0" ripplerFill="BLACK" text="Sign Out" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

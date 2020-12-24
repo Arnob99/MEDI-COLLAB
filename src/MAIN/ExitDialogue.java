@@ -33,7 +33,7 @@ public class ExitDialogue extends Stage {
         initModality(Modality.APPLICATION_MODAL);
 
         Rectangle bg = new Rectangle(350, 200, Color.valueOf("#f0ffff"));
-        bg.setStrokeWidth(4);
+        bg.setStrokeWidth(2);
         bg.setStroke(Color.valueOf("#464646"));
 
         Text header = new Text("QUIT?");
