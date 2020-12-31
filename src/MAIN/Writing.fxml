@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MAIN.Writing_Controller">
    <children>
-      <JFXButton fx:id="GoBackButton" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="14.0" onAction="#handleGoBackButton" prefWidth="100.0" ripplerFill="BLACK" text="&lt; Go Back" textFill="WHITE">
+      <JFXButton fx:id="CancelButton" buttonType="RAISED" focusTraversable="false" layoutX="502.0" layoutY="456.0" onAction="#handleCancelButton" prefWidth="120.0" ripplerFill="BLACK" text="Cancel" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
@@ -20,7 +20,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <JFXTextArea fx:id="WritingWriteHereTextArea" focusColor="#2ed2ff" focusTraversable="false" labelFloat="true" layoutX="438.0" layoutY="95.0" prefHeight="340.0" prefWidth="500.0" promptText="Write Here" unFocusColor="#30d6ff80">
+      <JFXTextArea fx:id="WritingWriteHereTextArea" focusColor="#2ed2ff" focusTraversable="false" labelFloat="true" layoutX="392.0" layoutY="85.0" prefHeight="320.0" prefWidth="548.0" promptText="Write Here" unFocusColor="#30d6ff80">
          <font>
             <Font size="13.0" />
          </font>
@@ -30,7 +30,7 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="WritingCredentialsPane" layoutX="63.0" layoutY="95.0" prefHeight="377.0" prefWidth="325.0">
+      <AnchorPane fx:id="WritingCredentialsPane" layoutX="60.0" layoutY="85.0" prefHeight="320.0" prefWidth="325.0">
          <children>
             <JFXTextField fx:id="WritingToTextField" focusColor="#2ed2ff" labelFloat="true" layoutX="25.0" layoutY="25.0" prefHeight="25.0" prefWidth="275.0" promptText="To" unFocusColor="#30d6ff80">
                <font>
@@ -47,27 +47,27 @@
                   <Font size="13.0" />
                </font>
             </JFXTextArea>
-            <JFXButton fx:id="WritingSendButton" buttonType="RAISED" focusTraversable="false" layoutX="88.0" layoutY="333.0" onAction="#handleWritingSendButton" prefWidth="150.0" ripplerFill="BLACK" text="Send" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </JFXButton>
-            <Label fx:id="WritingNotifyLabel" alignment="CENTER" focusTraversable="false" layoutX="25.0" layoutY="300.0" prefHeight="17.0" prefWidth="275.0" textFill="#464646">
+            <Label fx:id="WritingNotifyLabel" alignment="CENTER" focusTraversable="false" layoutX="25.0" layoutY="295.0" prefHeight="17.0" prefWidth="275.0" textFill="#464646">
                <font>
                   <Font size="11.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <JFXButton fx:id="WritingChooseFileButton" buttonType="RAISED" focusTraversable="false" layoutX="808.0" layoutY="442.0" onAction="#handleWritingChooseFileButton" prefHeight="30.0" prefWidth="130.0" ripplerFill="BLACK" text="Choose File" textAlignment="CENTER" textFill="WHITE">
+      <JFXButton fx:id="WritingChooseFileButton" buttonType="RAISED" focusTraversable="false" layoutX="810.0" layoutY="412.0" onAction="#handleWritingChooseFileButton" prefHeight="30.0" prefWidth="130.0" ripplerFill="BLACK" text="Choose File" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </JFXButton>
-      <Label fx:id="WritingChooseFileLabel" focusTraversable="false" layoutX="438.0" layoutY="442.0" prefHeight="30.0" prefWidth="363.0" text="Choose File to Send" textFill="#464646">
+      <Label fx:id="WritingChooseFileLabel" focusTraversable="false" layoutX="60.0" layoutY="412.0" prefHeight="30.0" prefWidth="743.0" text="Choose File to Send" textFill="#464646">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
+      <JFXButton fx:id="WritingSendButton" buttonType="RAISED" focusTraversable="false" layoutX="378.0" layoutY="456.0" onAction="#handleWritingSendButton" prefWidth="120.0" ripplerFill="BLACK" text="Send" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

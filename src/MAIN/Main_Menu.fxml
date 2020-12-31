@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="MainMenu" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MAIN.Main_Menu_Patient_Controller">
+<AnchorPane fx:id="MainMenu" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MAIN.Main_Menu_Controller">
    <children>
       <Label fx:id="CloseLabel" layoutX="970.0" layoutY="14.0" onMouseClicked="#handleCloseLabel" text="X" />
       <Label fx:id="MinimizeLabel" layoutX="940.0" layoutY="14.0" onMouseClicked="#handleMinimizeLabel" text="—" />

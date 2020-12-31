@@ -81,7 +81,7 @@
                   <Font size="13.0" />
                </font>
             </JFXPasswordField>
-            <JFXButton fx:id="SignUpSignUpButton" alignment="CENTER" buttonType="RAISED" focusTraversable="false" layoutX="299.0" layoutY="354.0" onAction="#handleSignUpSignUpButton" prefHeight="32.0" prefWidth="100.0" ripplerFill="BLACK" text="Sign Up" textAlignment="CENTER" textFill="WHITE">
+            <JFXButton fx:id="SignUpSignUpButton" alignment="CENTER" buttonType="RAISED" focusTraversable="false" layoutX="278.0" layoutY="354.0" onAction="#handleSignUpSignUpButton" prefHeight="32.0" prefWidth="120.0" ripplerFill="BLACK" text="Sign Up" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -91,7 +91,7 @@
                   <Font size="13.0" />
                </font>
             </JFXTextField>
-            <JFXButton fx:id="SignUpCancelButton" alignment="CENTER" buttonType="RAISED" focusTraversable="false" layoutX="401.0" layoutY="354.0" onAction="#handleSignUpCancelButton" prefHeight="32.0" prefWidth="100.0" ripplerFill="BLACK" text="Cancel" textFill="WHITE">
+            <JFXButton fx:id="CancelButton" alignment="CENTER" buttonType="RAISED" focusTraversable="false" layoutX="402.0" layoutY="354.0" onAction="#handleCancelButton" prefHeight="32.0" prefWidth="120.0" ripplerFill="BLACK" text="Cancel" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>

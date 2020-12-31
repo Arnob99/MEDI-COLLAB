@@ -17,7 +17,9 @@ import javafx.stage.Stage;
 import java.awt.*;
 import java.io.*;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 public class Writing_Controller {
@@ -36,7 +38,7 @@ public class Writing_Controller {
         exitDialogue.OpenDialogue();
     }
 
-    public void handleGoBackButton(ActionEvent actionEvent) throws IOException {
+    public void handleCancelButton(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Main_Menu_" + Medi_collab.role + ".fxml"));
 
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
@@ -67,10 +69,20 @@ public class Writing_Controller {
             preparedStatement.setString(2, receiver);
             preparedStatement.setBlob(3, fileInputStream);
 
-            preparedStatement.execute();
+            Statement statement = Medi_collab.connection().createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT USERNAME FROM USERS_TABLE " +
+                    "WHERE USERNAME = '" + receiver + "'");
 
-            WritingNotifyLabel.setText("SENT!");
-            WritingNotifyLabel.setTextFill(Color.valueOf("#464646"));
+            if(resultSet.next()) {
+                preparedStatement.execute();
+                WritingNotifyLabel.setText("SENT!");
+                WritingNotifyLabel.setTextFill(Color.valueOf("#464646"));
+            }
+            else{
+                WritingNotifyLabel.setText("Invalid Receiver Username!");
+                WritingNotifyLabel.setTextFill(Color.RED);
+            }
+
         }
         catch (SQLException | FileNotFoundException throwables) {
             throwables.printStackTrace();

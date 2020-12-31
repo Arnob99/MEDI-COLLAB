@@ -65,7 +65,7 @@ public class Sign_Up_Controller {
         ((Stage)((Node)mouseEvent.getSource()).getScene().getWindow()).setIconified(true);
     }
 
-    public void handleSignUpCancelButton(ActionEvent actionEvent) throws IOException {
+    public void handleCancelButton(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Sign_In.fxml"));
 
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();

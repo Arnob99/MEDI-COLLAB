@@ -1,10 +1,13 @@
+#CancelButton {
+    -fx-background-color: #2ed2ff;
+    -fx-background-radius: 0 16 16 0;
+    -fx-border-radius: 0 16 16 0;
+}
+
 #CloseLabel {
     -fx-alignment: CENTER;
     -fx-background-color: TRANSPARENT;
     -fx-background-radius: 10;
-    /*-fx-border-color: #a7fafa;*/
-    /*-fx-border-radius: 10;*/
-    /*-fx-border-width: 1;*/
     -fx-font-size: 11;
     -fx-font-weight: BOLD;
     -fx-pref-height: 16;
@@ -28,9 +31,11 @@
 }
 
 #MainMenuAppointmentListButton {
-    -fx-background-color: #2ed2ff;
-    -fx-background-radius: 16;
-    -fx-border-radius: 16;
+    -fx-background-radius: 16 0 0 16;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 16 0 0 16;
+    -fx-border-width: 1.5;
+    -fx-text-fill: #464646;
 }
 
 #MainMenuMyProfileButton {
@@ -40,21 +45,27 @@
 }
 
 #MainMenuPatientSetAppointmentButton {
-    -fx-background-color: #2ed2ff;
-    -fx-background-radius: 16;
-    -fx-border-radius: 16;
+    -fx-background-radius: 16 0 0 16;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 16 0 0 16;
+    -fx-border-width: 1.5;
+    -fx-text-fill: #464646;
 }
 
 #MainMenuPrescriptionButton {
-    -fx-background-color: #2ed2ff;
-    -fx-background-radius: 16;
-    -fx-border-radius: 16;
+    -fx-background-radius: 16 0 0 16;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 16 0 0 16;
+    -fx-border-width: 1.5;
+    -fx-text-fill: #464646;
 }
 
 #MainMenuTestResultButton {
-    -fx-background-color: #2ed2ff;
-    -fx-background-radius: 16;
-    -fx-border-radius: 16;
+    -fx-background-radius: 16 0 0 16;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 16 0 0 16;
+    -fx-border-width: 1.5;
+    -fx-text-fill: #464646;
 }
 
 #MainMenuSignOutButton {
@@ -111,12 +122,6 @@
     -fx-background-color: #2ed2ff;
     -fx-background-radius: 16;
     -fx-border-radius: 16;
-}
-
-#SignUpCancelButton {
-    -fx-background-radius: 0 16 16 0;
-    -fx-background-color: #2ed2ff;
-    -fx-border-radius: 0 16 16 0;
 }
 
 #SignUpSignUpButton {
@@ -209,8 +214,8 @@
 
 #WritingCredentialsPane {
     -fx-background-color: #a7fafa;
-    -fx-background-radius: 16;
-    -fx-border-radius: 16;
+    -fx-background-radius: 16 0 0 0;
+    -fx-border-radius: 16 0 0 0;
 }
 
 #WritingChooseFileButton {
@@ -228,15 +233,15 @@
 
 #WritingSendButton {
     -fx-background-color: #2ed2ff;
-    -fx-background-radius: 16;
-    -fx-border-radius: 16;
+    -fx-background-radius: 16 0 0 16;
+    -fx-border-radius: 16 0 0 16;
 }
 
 #WritingWriteHereTextArea {
     -fx-background-color: #a7fafa;
-    -fx-background-radius: 16 16 0 0;
-    -fx-border-radius: 16 16 0 0;
-    -fx-padding: 5 0 0 10;
+    -fx-background-radius: 0 16 0 0;
+    -fx-border-radius: 0 16 0 0;
+    -fx-padding: 30 0 0 10;
     -fx-text-fill: #464646;
 }
 
