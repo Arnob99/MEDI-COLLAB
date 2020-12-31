@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MAIN.User_Profile_Controller">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="837.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="837.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Resources/Images/default_user_icon.png" />
          </image>
@@ -21,71 +21,71 @@
          </font>
       </Label>
       <JFXButton fx:id="UserProfileChangePicButton" alignment="CENTER" focusTraversable="false" layoutX="874.0" layoutY="215.0" mnemonicParsing="false" onAction="#handleUserProfileChangePicButton" ripplerFill="#a7fafa" stylesheets="@../Resources/Medi_collab_Stylesheet.css" text="Change Pic" textAlignment="CENTER" textFill="#464646" underline="true" />
-      <Label layoutX="458.0" layoutY="14.0" text="Profile" textAlignment="CENTER" textFill="#464646">
+      <Label layoutX="449.0" layoutY="14.0" text="Profile" textAlignment="CENTER" textFill="#464646">
          <font>
-            <Font size="30.0" />
+            <Font size="36.0" />
          </font>
       </Label>
-      <JFXButton fx:id="UserProfileGoBackButton" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="14.0" onAction="#handleUserProfileGoBackButton" prefWidth="100.0" ripplerFill="BLACK" text="&lt; Go Back" textAlignment="CENTER" textFill="WHITE">
+      <JFXButton fx:id="GoBackButton" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="14.0" onAction="#handleGoBackButton" prefWidth="100.0" ripplerFill="BLACK" text="&lt; Go Back" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font></JFXButton>
-      <Label fx:id="UserProfileNameLabel" layoutX="65.0" layoutY="149.0" prefHeight="25.0" prefWidth="103.0" text="  Name" textFill="#464646">
+      <Label fx:id="UserProfileNameLabel" layoutX="64.0" layoutY="182.0" prefHeight="25.0" prefWidth="103.0" text="  Name" textFill="#464646">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="UserProfileUsernameLabel" layoutX="65.0" layoutY="109.0" prefHeight="25.0" prefWidth="103.0" text="  Username" textFill="#464646">
+      <Label fx:id="UserProfileUsernameLabel" layoutX="64.0" layoutY="142.0" prefHeight="25.0" prefWidth="103.0" text="  Username" textFill="#464646">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="UserProfileAgeLabel" layoutX="65.0" layoutY="189.0" prefHeight="25.0" prefWidth="103.0" text="  Age" textFill="#464646">
+      <Label fx:id="UserProfileAgeLabel" layoutX="64.0" layoutY="222.0" prefHeight="25.0" prefWidth="103.0" text="  Age" textFill="#464646">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="UserProfileEmailLabel" layoutX="65.0" layoutY="229.0" prefHeight="25.0" prefWidth="103.0" text="  Email" textFill="#464646">
+      <Label fx:id="UserProfileEmailLabel" layoutX="64.0" layoutY="262.0" prefHeight="25.0" prefWidth="103.0" text="  Email" textFill="#464646">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="UserProfileAddressLabel" layoutX="65.0" layoutY="269.0" prefHeight="25.0" prefWidth="103.0" text="  Address" textFill="#464646">
+      <Label fx:id="UserProfileAddressLabel" layoutX="64.0" layoutY="302.0" prefHeight="25.0" prefWidth="103.0" text="  Address" textFill="#464646">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="UserProfileUsernameInfoLabel" layoutX="171.0" layoutY="109.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646">
+      <Label fx:id="UserProfileUsernameInfoLabel" layoutX="170.0" layoutY="142.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="UserProfileNameInfoLabel" layoutX="171.0" layoutY="149.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646">
+      <Label fx:id="UserProfileNameInfoLabel" layoutX="170.0" layoutY="182.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="UserProfileAgeInfoLabel" layoutX="171.0" layoutY="189.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646">
+      <Label fx:id="UserProfileAgeInfoLabel" layoutX="170.0" layoutY="222.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="UserProfileEmailInfoLabel" layoutX="171.0" layoutY="229.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646">
+      <Label fx:id="UserProfileEmailInfoLabel" layoutX="170.0" layoutY="262.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="UserProfileAddressInfoLabel" layoutX="171.0" layoutY="269.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646">
+      <Label fx:id="UserProfileAddressInfoLabel" layoutX="170.0" layoutY="302.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="UserProfileContactNoLabel" layoutX="65.0" layoutY="312.0" prefHeight="25.0" prefWidth="103.0" text="  Contact No." textFill="#464646">
+      <Label fx:id="UserProfileContactNoLabel" layoutX="64.0" layoutY="342.0" prefHeight="25.0" prefWidth="103.0" text="  Contact No." textFill="#464646">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="UserProfileContactNoInfoLabel" layoutX="171.0" layoutY="312.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646">
+      <Label fx:id="UserProfileContactNoInfoLabel" layoutX="170.0" layoutY="342.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646">
          <font>
             <Font size="14.0" />
          </font>

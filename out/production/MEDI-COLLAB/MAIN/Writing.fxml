@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MAIN.Writing_Controller">
+   <children>
+      <JFXButton fx:id="GoBackButton" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="14.0" onAction="#handleGoBackButton" prefWidth="100.0" ripplerFill="BLACK" text="&lt; Go Back" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="CloseLabel" alignment="CENTER" focusTraversable="false" layoutX="970.0" layoutY="14.0" onMouseClicked="#handleCloseLabel" text="X" />
+      <Label fx:id="MinimizeLabel" focusTraversable="false" layoutX="940.0" layoutY="14.0" onMouseClicked="#handleMinimizeLabel" text="—" textFill="#464646">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <JFXTextArea fx:id="WritingWriteHereTextArea" focusColor="#2ed2ff" focusTraversable="false" labelFloat="true" layoutX="438.0" layoutY="95.0" prefHeight="340.0" prefWidth="500.0" promptText="Write Here" unFocusColor="#30d6ff80">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXTextArea>
+      <Label layoutX="441.0" layoutY="14.0" text="Writing" textAlignment="CENTER" textFill="#464646">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="WritingCredentialsPane" layoutX="63.0" layoutY="95.0" prefHeight="377.0" prefWidth="325.0">
+         <children>
+            <JFXTextField fx:id="WritingToTextField" focusColor="#2ed2ff" labelFloat="true" layoutX="25.0" layoutY="25.0" prefHeight="25.0" prefWidth="275.0" promptText="To" unFocusColor="#30d6ff80">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="WritingSubjectTextField" focusColor="#2ed2ff" focusTraversable="false" labelFloat="true" layoutX="25.0" layoutY="80.0" prefHeight="25.0" prefWidth="275.0" promptText="Subject" unFocusColor="#30d6ff80">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextArea fx:id="WritingDescriptiontextArea" focusColor="#2ed2ff" focusTraversable="false" labelFloat="true" layoutX="25.0" layoutY="135.0" prefHeight="150.0" prefWidth="275.0" promptText="Description" unFocusColor="#30d6ff80">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextArea>
+            <JFXButton fx:id="WritingSendButton" buttonType="RAISED" focusTraversable="false" layoutX="88.0" layoutY="333.0" onAction="#handleWritingSendButton" prefWidth="150.0" ripplerFill="BLACK" text="Send" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <Label fx:id="WritingNotifyLabel" alignment="CENTER" focusTraversable="false" layoutX="25.0" layoutY="300.0" prefHeight="17.0" prefWidth="275.0" textFill="#464646">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="WritingChooseFileButton" buttonType="RAISED" focusTraversable="false" layoutX="808.0" layoutY="442.0" onAction="#handleWritingChooseFileButton" prefHeight="30.0" prefWidth="130.0" ripplerFill="BLACK" text="Choose File" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="WritingChooseFileLabel" focusTraversable="false" layoutX="438.0" layoutY="442.0" prefHeight="30.0" prefWidth="363.0" text="Choose File to Send" textFill="#464646">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

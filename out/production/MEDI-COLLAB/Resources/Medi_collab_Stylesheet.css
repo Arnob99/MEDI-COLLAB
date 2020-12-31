@@ -21,6 +21,12 @@
     -fx-text-fill: WHITE;
 }
 
+#GoBackButton {
+    -fx-background-color: #2ed2ff;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+}
+
 #MainMenuAppointmentListButton {
     -fx-background-color: #2ed2ff;
     -fx-background-radius: 16;
@@ -181,16 +187,6 @@
     -fx-background-radius: 0 10 10 0;
 }
 
-#UserProfileGoBackButton {
-    -fx-background-color: #2ed2ff;
-    -fx-background-radius: 16;
-    -fx-border-radius: 16;
-}
-
-#UserProfileGoBackButton:pressed {
-
-}
-
 #UserProfileNameLabel {
     -fx-background-color: #a7fafa;
     -fx-background-radius: 10 0 0 10;
@@ -209,6 +205,39 @@
 #UserProfileUsernameInfoLabel {
     -fx-background-color: #a7fafa;
     -fx-background-radius: 0 10 10 0;
+}
+
+#WritingCredentialsPane {
+    -fx-background-color: #a7fafa;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+}
+
+#WritingChooseFileButton {
+    -fx-background-color: #2ed2ff;
+    -fx-background-radius: 0 0 16 0;
+    -fx-border-radius: 0 0 16 0;
+}
+
+#WritingChooseFileLabel {
+    -fx-background-color: #a7fafa;
+    -fx-background-radius: 0 0 0 16;
+    -fx-border-radius: 0 0 0 16;
+    -fx-padding: 0 0 0 10;
+}
+
+#WritingSendButton {
+    -fx-background-color: #2ed2ff;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+}
+
+#WritingWriteHereTextArea {
+    -fx-background-color: #a7fafa;
+    -fx-background-radius: 16 16 0 0;
+    -fx-border-radius: 16 16 0 0;
+    -fx-padding: 5 0 0 10;
+    -fx-text-fill: #464646;
 }
 
 .jfx-radio-button {

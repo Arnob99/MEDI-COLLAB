@@ -70,7 +70,6 @@ public class Sign_In_Controller {
         boolean alright = false;
         Statement statement = null;
         ResultSet resultSet = null;
-        String role = "";
 
         try {
             statement = Medi_collab.connection().createStatement();
@@ -95,7 +94,7 @@ public class Sign_In_Controller {
                 if(resultSet.next()){
                     if(resultSet.getString("PASSWORD").equals(signinpassword)) {
                         alright = true;
-                        role = resultSet.getString("ROLE");
+                        Medi_collab.role = resultSet.getString("ROLE");
                     }
                     else
                         SignInNotifyLabel.setText("username or password is incorrect");
@@ -106,12 +105,13 @@ public class Sign_In_Controller {
         }
         catch (SQLException throwable) {
             throwable.printStackTrace();
+            SignInNotifyLabel.setText(throwable.getMessage());
         }
 
         if(alright){
             Medi_collab.User_Info_Resultset = resultSet;
 
-            Parent root = FXMLLoader.load(getClass().getResource("Main_Menu_" + role + ".fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Main_Menu_" + Medi_collab.role + ".fxml"));
 
             Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
 

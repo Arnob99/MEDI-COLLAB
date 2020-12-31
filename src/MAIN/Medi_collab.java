@@ -24,7 +24,7 @@ import java.util.Optional;
 public class Medi_collab extends Application {
     public static boolean admin_logged_in = false;
     public static ResultSet User_Info_Resultset = null;
-    public static String stylesheetaddress = "/Resources/Medi_collab_Stylesheet.css";
+    public static String stylesheetaddress = "/Resources/Medi_collab_Stylesheet.css", role = "";
 //    public static String dbusername, dbpassword;
 
     @Override

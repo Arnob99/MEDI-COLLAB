@@ -21,27 +21,19 @@ import java.sql.Statement;
 
 public class User_Profile_Controller {
     @FXML
-    private JFXButton UserProfileChangePicButton;
-    @FXML
-    private Label CloseLabel;
-    @FXML
-    private Label MinimizeLabel;
-    @FXML
-    private Button UserProfileGoBackButton;
-    @FXML
-    private Label UserProfileUsernameInfoLabel;
-    @FXML
-    private Label UserProfileNameInfoLabel;
+    private Label UserProfileAddressInfoLabel;
     @FXML
     private Label UserProfileAgeInfoLabel;
     @FXML
+    private Label UserProfileContactNoInfoLabel;
+    @FXML
     private Label UserProfileEmailInfoLabel;
     @FXML
-    private Label UserProfileAddressInfoLabel;
+    private Label UserProfileNameInfoLabel;
     @FXML
-    private Label UserProfileContactNoInfoLabel;
+    private Label UserProfileUsernameInfoLabel;
 
-    public String username, name, age, email, address, contact, role;
+    public String username, name, age, email, address, contact;
 
     public void ShowUserInfo(ResultSet resultSet) {
         name = age = email = address = contact = "UNKNOWN";
@@ -60,7 +52,6 @@ public class User_Profile_Controller {
             try {
                 name = resultSet.getString("FIRSTNAME") + " " + resultSet.getString("LASTNAME");
                 email = resultSet.getString("EMAIL");
-                role = resultSet.getString("ROLE");
                 address = resultSet.getString("ADDRESS");
                 contact = resultSet.getString("CONTACT");
 
@@ -96,8 +87,8 @@ public class User_Profile_Controller {
         ((Stage) ((Node)mouseEvent.getSource()).getScene().getWindow()).setIconified(true);
     }
 
-    public void handleUserProfileGoBackButton(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Main_Menu_" + role + ".fxml"));
+    public void handleGoBackButton(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Main_Menu_" + Medi_collab.role + ".fxml"));
 
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
 

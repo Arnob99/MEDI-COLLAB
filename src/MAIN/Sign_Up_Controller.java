@@ -185,6 +185,7 @@ public class Sign_Up_Controller {
             }
             catch (SQLException throwables) {
                 throwables.printStackTrace();
+                SignUpNotifyLabel.setText(throwables.getMessage());
             }
         }
 

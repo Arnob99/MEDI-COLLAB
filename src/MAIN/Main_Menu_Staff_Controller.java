@@ -54,7 +54,17 @@ public class Main_Menu_Staff_Controller {
         stage.show();
     }
 
-    public void handleMainMenuTestResultButton(ActionEvent actionEvent) {
+    public void handleMainMenuTestResultButton(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Writing.fxml"));
+
+        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+
+        Scene scene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
+        scene.getStylesheets().add(Medi_collab.stylesheetaddress);
+        scene.setFill(Color.TRANSPARENT);
+
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void handleMinimizeLabel(MouseEvent mouseEvent) {
