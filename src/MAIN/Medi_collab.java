@@ -29,7 +29,9 @@ public class Medi_collab extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Sign_In.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Sign_In.fxml"));
+
+        Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource(Medi_collab.stylesheetaddress).toExternalForm());
@@ -84,6 +86,17 @@ public class Medi_collab extends Application {
                             "ADDRESS VARCHAR2(100)," +
                             "CONTACT VARCHAR2(15)" +
                             ")");
+
+                    statement.executeQuery("DROP TABLE SHARED_FILES");
+
+                    statement.executeQuery("CREATE TABLE SHARED_FILES (" +
+                            "    SENDER VARCHAR2(20), " +
+                            "    RECEIVER VARCHAR2(20)," +
+                            "    SUBJECT VARCHAR2(250)," +
+                            "    DESCRIPTION BLOB," +
+                            "    WRITING BLOB," +
+                            "    SHARING_FILE BLOB," +
+                            "    SHARING_DATE DATE)");
 
 //                    statement.executeQuery("CREATE TABLE PENDING_USERS_TABLE(" +
 //                            ")");

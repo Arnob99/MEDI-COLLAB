@@ -37,7 +37,7 @@
                   <Font size="11.0" />
                </font>
             </Label>
-            <JFXButton fx:id="SignInLoginButton" buttonType="RAISED" layoutX="48.0" layoutY="250.0" onAction="#handleSignInLoginButton" prefHeight="32.0" prefWidth="228.0" ripplerFill="BLACK" text="Login" textFill="WHITE">
+            <JFXButton fx:id="SignInLoginButton" buttonType="RAISED" layoutX="48.0" layoutY="250.0" onAction="#handleSignInLoginButton" prefWidth="228.0" ripplerFill="BLACK" text="Login" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -56,7 +56,7 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <JFXButton fx:id="SignInSignUpButton" buttonType="RAISED" focusTraversable="false" layoutX="26.0" layoutY="226.0" onAction="#handleSignInSignUpButton" prefHeight="32.0" prefWidth="165.0" ripplerFill="BLACK" text="Sign Up" textFill="WHITE">
+            <JFXButton fx:id="SignInSignUpButton" buttonType="RAISED" focusTraversable="false" layoutX="26.0" layoutY="226.0" onAction="#handleSignInSignUpButton" prefWidth="165.0" ripplerFill="BLACK" text="Sign Up" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>

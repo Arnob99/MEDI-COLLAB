@@ -87,8 +87,10 @@ public class User_Profile_Controller {
         ((Stage) ((Node)mouseEvent.getSource()).getScene().getWindow()).setIconified(true);
     }
 
-    public void handleGoBackButton(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Main_Menu_" + Medi_collab.role + ".fxml"));
+    public void handleGoBackButton(ActionEvent actionEvent) throws IOException, SQLException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Main_Menu.fxml"));
+
+        Parent root = fxmlLoader.load();
 
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
 
@@ -98,5 +100,19 @@ public class User_Profile_Controller {
 
         stage.setScene(scene);
         stage.show();
+
+        Main_Menu_Controller main_menu_controller = fxmlLoader.getController();
+        main_menu_controller.init();
+    }
+
+    public void handleRefreshButton(ActionEvent actionEvent) throws SQLException {
+        Statement statement = Medi_collab.connection().createStatement();
+
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM USERS_TABLE WHERE USERNAME = '" + username + "'");
+
+        Medi_collab.User_Info_Resultset = resultSet;
+
+        ShowUserInfo(resultSet);
+
     }
 }

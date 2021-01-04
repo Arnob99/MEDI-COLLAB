@@ -20,7 +20,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <JFXButton fx:id="UserProfileChangePicButton" alignment="CENTER" focusTraversable="false" layoutX="874.0" layoutY="215.0" mnemonicParsing="false" onAction="#handleUserProfileChangePicButton" ripplerFill="#a7fafa" stylesheets="@../Resources/Medi_collab_Stylesheet.css" text="Change Pic" textAlignment="CENTER" textFill="#464646" underline="true" />
+      <JFXButton fx:id="UserProfileChangePicButton" alignment="CENTER" focusTraversable="false" layoutX="837.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleUserProfileChangePicButton" prefWidth="150.0" ripplerFill="#a7fafa" stylesheets="@../Resources/Medi_collab_Stylesheet.css" text="Change Pic" textAlignment="CENTER" textFill="#464646" underline="true" />
       <Label layoutX="449.0" layoutY="14.0" text="Profile" textAlignment="CENTER" textFill="#464646">
          <font>
             <Font size="36.0" />
@@ -90,5 +90,10 @@
             <Font size="14.0" />
          </font>
       </Label>
+      <JFXButton fx:id="RefreshButton" buttonType="RAISED" layoutX="14.0" layoutY="47.0" onAction="#handleRefreshButton" prefWidth="100.0" ripplerFill="BLACK" text="Refresh" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

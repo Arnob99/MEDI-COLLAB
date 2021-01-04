@@ -56,7 +56,7 @@ public class Sign_In_Controller {
             SignInNotifyLabel.setText("Please enter username first.");
     }
 
-    public void handleSignInLoginButton(ActionEvent actionEvent) throws IOException {
+    public void handleSignInLoginButton(ActionEvent actionEvent) throws IOException, SQLException {
         signinusername = SignInUsernameTextField.getText();
         signinpassword = SignInPasswordTextField.getText();
 
@@ -106,7 +106,8 @@ public class Sign_In_Controller {
         if(alright){
             Medi_collab.User_Info_Resultset = resultSet;
 
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Main_Menu_" + Medi_collab.role + ".fxml"));
+//            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Main_Menu_" + Medi_collab.role + ".fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Main_Menu.fxml"));
 
             Parent root = fxmlLoader.load();
 
@@ -118,6 +119,9 @@ public class Sign_In_Controller {
 
             stage.setScene(scene);
             stage.show();
+
+            Main_Menu_Controller main_menu_controller = fxmlLoader.getController();
+            main_menu_controller.init();
         }
     }
 

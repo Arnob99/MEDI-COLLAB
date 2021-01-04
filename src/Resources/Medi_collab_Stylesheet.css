@@ -26,8 +26,44 @@
 
 #GoBackButton {
     -fx-background-color: #2ed2ff;
-    -fx-background-radius: 16;
-    -fx-border-radius: 16;
+    -fx-background-radius: 16 16 0 0;
+    -fx-border-radius: 16 16 0 0;
+}
+
+#MainMenuActionPane {
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 10;
+    -fx-border-width: 0 0 0 1.5;
+}
+
+#MainMenuActionPanePrescriptionListView {
+    -fx-background-color: #a7fafa;
+    -fx-background-radius: 10;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 10;
+    -fx-border-width: 1.5;
+}
+
+#MainMenuActionPanePrescriptionListView .list-cell {
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 10;
+    -fx-focus-traversable: false;
+    -fx-padding: 0;
+}
+
+#MainMenuActionPaneTestResultListView {
+    -fx-background-color: #a7fafa;
+    -fx-background-radius: 10;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 10;
+    -fx-border-width: 1.5;
+}
+
+#MainMenuActionPaneTestResultListView .list-cell {
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 10;
+    -fx-focus-traversable: false;
+    -fx-padding: 0;
 }
 
 #MainMenuAppointmentListButton {
@@ -38,13 +74,18 @@
     -fx-text-fill: #464646;
 }
 
-#MainMenuMyProfileButton {
+#MainMenuComposeButton {
     -fx-background-color: #2ed2ff;
     -fx-background-radius: 16;
-    -fx-border-radius: 16;
 }
 
-#MainMenuPatientSetAppointmentButton {
+#MainMenuMyProfileButton {
+    -fx-background-color: #2ed2ff;
+    -fx-background-radius: 16 16 0 0;
+    -fx-border-radius: 16 16 0 0;
+}
+
+#MainMenuPrescriptionButton {
     -fx-background-radius: 16 0 0 16;
     -fx-border-color: #2ed2ff;
     -fx-border-radius: 16 0 0 16;
@@ -52,7 +93,7 @@
     -fx-text-fill: #464646;
 }
 
-#MainMenuPrescriptionButton {
+#MainMenuSetAppointmentButton {
     -fx-background-radius: 16 0 0 16;
     -fx-border-color: #2ed2ff;
     -fx-border-radius: 16 0 0 16;
@@ -95,6 +136,12 @@
     -fx-background-color: #2ed2ff;
     /*-fx-border-color: #2ed2ff;*/
     -fx-text-fill: WHITE;
+}
+
+#RefreshButton {
+    -fx-background-color: #2ed2ff;
+    -fx-background-radius: 0 0 16 16;
+    -fx-border-radius: 0 0 16 16;
 }
 
 #SignInForgotPasswordHyperlink:hover {
@@ -212,12 +259,6 @@
     -fx-background-radius: 0 10 10 0;
 }
 
-#WritingCredentialsPane {
-    -fx-background-color: #a7fafa;
-    -fx-background-radius: 16 0 0 0;
-    -fx-border-radius: 16 0 0 0;
-}
-
 #WritingChooseFileButton {
     -fx-background-color: #2ed2ff;
     -fx-background-radius: 0 0 16 0;
@@ -231,13 +272,19 @@
     -fx-padding: 0 0 0 10;
 }
 
+#WritingCredentialsPane {
+    -fx-background-color: #a7fafa;
+    -fx-background-radius: 16 0 0 0;
+    -fx-border-radius: 16 0 0 0;
+}
+
 #WritingSendButton {
     -fx-background-color: #2ed2ff;
     -fx-background-radius: 16 0 0 16;
     -fx-border-radius: 16 0 0 16;
 }
 
-#WritingWriteHereTextArea {
+#WritingWriteHerePane {
     -fx-background-color: #a7fafa;
     -fx-background-radius: 0 16 0 0;
     -fx-border-radius: 0 16 0 0;

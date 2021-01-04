@@ -1,6 +1,7 @@
 package MAIN;
 
 import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,6 +26,12 @@ import java.util.List;
 public class Writing_Controller {
 
     @FXML
+    private JFXTextArea WritingWriteHereTextArea;
+    @FXML
+    private JFXTextArea WritingDescriptionTextArea;
+    @FXML
+    private JFXTextField WritingSubjectTextField;
+    @FXML
     private Label WritingNotifyLabel;
     @FXML
     private JFXTextField WritingToTextField;
@@ -39,16 +46,8 @@ public class Writing_Controller {
     }
 
     public void handleCancelButton(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Main_Menu_" + Medi_collab.role + ".fxml"));
-
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-
-        Scene scene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
-        scene.getStylesheets().add(Medi_collab.stylesheetaddress);
-        scene.setFill(Color.TRANSPARENT);
-
-        stage.setScene(scene);
-        stage.show();
+        stage.close();
     }
 
     public void handleMinimizeLabel(MouseEvent mouseEvent) {
@@ -57,34 +56,82 @@ public class Writing_Controller {
 
     public void handleWritingSendButton(ActionEvent actionEvent) {
         String sender = null;
+        boolean alright = true;
         try {
             sender = Medi_collab.User_Info_Resultset.getString("USERNAME");
             String receiver = WritingToTextField.getText();
             PreparedStatement preparedStatement = Medi_collab.connection().prepareStatement("INSERT INTO SHARED_FILES " +
-                    "VALUES (?, ?, ?, SYSDATE)");
+                    "VALUES (?, ?, ?, ?, ?, ?, SYSDATE)");
 
-            FileInputStream fileInputStream = new FileInputStream(file);
+            FileInputStream fileInputStream = null;
 
             preparedStatement.setString(1, sender);
             preparedStatement.setString(2, receiver);
-            preparedStatement.setBlob(3, fileInputStream);
+            preparedStatement.setString(3, WritingSubjectTextField.getText());
+
+            File temp = null;
+            FileWriter fileWriter = null;
+
+            if(WritingDescriptionTextArea.getText().length() != 0){
+                temp = new File("temp_description.txt");
+
+                fileWriter = new FileWriter(temp);
+                fileWriter.write(WritingDescriptionTextArea.getText());
+                fileWriter.close();
+
+                fileInputStream = new FileInputStream(temp);
+                preparedStatement.setBlob(4, fileInputStream);
+                fileInputStream.close();
+
+                temp.delete();
+            }
+            else
+                preparedStatement.setBlob(4, InputStream.nullInputStream());
+
+            temp = new File("temp_writing.txt");
+
+            fileWriter = new FileWriter(temp);
+            fileWriter.write(WritingWriteHereTextArea.getText());
+            fileWriter.close();
+
+            fileInputStream = new FileInputStream(temp);
+            preparedStatement.setBlob(5, fileInputStream);
+            fileInputStream.close();
+
+            temp.delete();
+
+            if(file != null) {
+                fileInputStream = new FileInputStream(file);
+                preparedStatement.setBlob(6, fileInputStream);
+                fileInputStream.close();
+
+                file.delete();
+            }
+            else
+                preparedStatement.setBlob(6, InputStream.nullInputStream());
 
             Statement statement = Medi_collab.connection().createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT USERNAME FROM USERS_TABLE " +
                     "WHERE USERNAME = '" + receiver + "'");
 
-            if(resultSet.next()) {
-                preparedStatement.execute();
-                WritingNotifyLabel.setText("SENT!");
-                WritingNotifyLabel.setTextFill(Color.valueOf("#464646"));
-            }
-            else{
+            if(!resultSet.next()) {
+                alright = false;
                 WritingNotifyLabel.setText("Invalid Receiver Username!");
                 WritingNotifyLabel.setTextFill(Color.RED);
             }
 
+            if(WritingWriteHereTextArea.getText().length() == 0){
+                alright = false;
+                WritingNotifyLabel.setText("Main Writing Field Cannot Be Empty!");
+                WritingNotifyLabel.setTextFill(Color.RED);
+            }
+
+            if(alright)
+                preparedStatement.execute();
+
+            ((Stage)((Node)actionEvent.getSource()).getScene().getWindow()).close();
         }
-        catch (SQLException | FileNotFoundException throwables) {
+        catch (SQLException | IOException throwables) {
             throwables.printStackTrace();
 
             WritingNotifyLabel.setText("NOT SENT!");
@@ -92,7 +139,7 @@ public class Writing_Controller {
         }
     }
 
-    public void handleWritingChooseFileButton(ActionEvent actionEvent) {
+    public void handleWritingChooseFileButton() {
         FileChooser fileChooser = new FileChooser();
         file = fileChooser.showOpenDialog(null);
 
