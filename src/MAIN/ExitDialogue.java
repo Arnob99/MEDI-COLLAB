@@ -50,8 +50,8 @@ public class ExitDialogue extends Stage {
         JFXButton OK = new JFXButton("OK");
         OK.setStyle("-fx-alignment: CENTER;             -fx-background-color: #2ed2ff; " +
                     "-fx-background-radius: 16 0 0 16;  -fx-border-radius: 16 0 0 16; " +
-                    "-fx-font-size: 14;                 -fx-min-height: 32; " +
-                    "-fx-min-width: 100;                -fx-text-fill: WHITE;");
+                    "-fx-font-size: 14;                 -fx-pref-height: 30; " +
+                    "-fx-pref-width: 100;                -fx-text-fill: WHITE;");
         OK.setButtonType(JFXButton.ButtonType.RAISED);
         OK.setFocusTraversable(false);
         OK.setRipplerFill(Color.BLACK);
@@ -66,8 +66,8 @@ public class ExitDialogue extends Stage {
         JFXButton CANCEL = new JFXButton("Cancel");
         CANCEL.setStyle("-fx-alignment: CENTER;             -fx-background-color: #2ed2ff; " +
                 "-fx-background-radius: 0 16 16 0;  -fx-border-radius: 0 16 16 0; " +
-                "-fx-font-size: 14;                 -fx-min-height: 32; " +
-                "-fx-min-width: 100;                -fx-text-fill: WHITE;");
+                "-fx-font-size: 14;                 -fx-pref-height: 30; " +
+                "-fx-pref-width: 100;                -fx-text-fill: WHITE;");
         CANCEL.setButtonType(JFXButton.ButtonType.RAISED);
         CANCEL.setFocusTraversable(false);
         CANCEL.setRipplerFill(Color.BLACK);

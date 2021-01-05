@@ -232,7 +232,7 @@ public class Main_Menu_Controller {
         MainMenuActionPaneAppointmentListLabel.setVisible(false);
         MainMenuActionPanePrescriptionListView.setVisible(false);
         MainMenuActionPaneTestResultListView.setVisible(true);
-        if(Medi_collab.role.equals("Doctor") || Medi_collab.role.equals("Staff"))
+        if(Medi_collab.role.equals("Staff"))
             MainMenuComposeButton.setVisible(true);
         else
             MainMenuComposeButton.setVisible(false);
@@ -279,19 +279,25 @@ public class Main_Menu_Controller {
             while (resultSet.next()){
                 String sender = resultSet.getString("SENDER");
 
-                Label label = new Label(sender);
+                ResultSet temp = tempstatement.executeQuery("SELECT FIRSTNAME, LASTNAME FROM USERS_TABLE " +
+                        "WHERE USERNAME = '" + sender + "'");
+
+                Label label = null;
+                if(temp.next())
+                    label = new Label(temp.getString("FIRSTNAME") + " " + temp.getString("LASTNAME"));
                 label.setFont(new Font(20));
                 label.setTextFill(Color.valueOf("#464646"));
 
                 VBox vBox = new VBox(5, label);
                 vBox.setAlignment(Pos.CENTER_LEFT);
-                vBox.setStyle("-fx-background-color: TRANSPARENT; -fx-background-radius: 10; -fx-padding: 0 0 0 10;" +
-                        "-fx-border-color: #2ed2ff; -fx-border-width: 1.5; -fx-border-radius: 10;" +
-                        "-fx-pref-height: 50;");
+                vBox.setStyle(" -fx-background-color: TRANSPARENT;      -fx-background-radius: 10;" +
+                        "       -fx-border-color: #2ed2ff;              -fx-border-width: 1.5;" +
+                        "       -fx-pref-height: 50;                    -fx-padding: 0 0 0 10;" +
+                        "       -fx-border-radius: 10;");
 
                 map.put(vBox, sender);
 
-                ResultSet temp = tempstatement.executeQuery("SELECT ROLE FROM USERS_TABLE WHERE USERNAME = '" + sender + "'");
+                temp = tempstatement.executeQuery("SELECT ROLE FROM USERS_TABLE WHERE USERNAME = '" + sender + "'");
 
                 if(temp.next()) {
                     if (temp.getString("ROLE").equals("Doctor"))
@@ -311,15 +317,21 @@ public class Main_Menu_Controller {
             while (resultSet.next()){
                 String receiver = resultSet.getString("RECEIVER");
 
-                Label label = new Label(receiver);
+                ResultSet temp = tempstatement.executeQuery("SELECT FIRSTNAME, LASTNAME FROM USERS_TABLE " +
+                        "WHERE USERNAME = '" + receiver + "'");
+
+                Label label = null;
+                if(temp.next())
+                    label = new Label(temp.getString("FIRSTNAME") + " " + temp.getString("LASTNAME"));
                 label.setFont(new Font(20));
                 label.setTextFill(Color.valueOf("#464646"));
 
                 VBox vBox = new VBox(5, label);
                 vBox.setAlignment(Pos.CENTER_LEFT);
-                vBox.setStyle("-fx-background-color: TRANSPARENT; -fx-background-radius: 10; -fx-padding: 0 0 0 10;" +
-                        "-fx-border-color: #2ed2ff; -fx-border-width: 1.5; -fx-border-radius: 10;" +
-                        "-fx-pref-height: 50;");
+                vBox.setStyle(" -fx-background-color: TRANSPARENT;      -fx-background-radius: 10;" +
+                        "       -fx-border-color: #2ed2ff;              -fx-border-width: 1.5;" +
+                        "       -fx-pref-height: 50;                    -fx-padding: 0 0 0 10;" +
+                        "       -fx-border-radius: 10;");
 
                 map.put(vBox, receiver);
 
@@ -336,17 +348,21 @@ public class Main_Menu_Controller {
             while (resultSet.next()){
                 String receiver = resultSet.getString("RECEIVER");
 
-                System.out.println(receiver);
+                ResultSet temp = tempstatement.executeQuery("SELECT FIRSTNAME, LASTNAME FROM USERS_TABLE " +
+                        "WHERE USERNAME = '" + receiver + "'");
 
-                Label label = new Label(receiver);
+                Label label = null;
+                if(temp.next())
+                    label = new Label(temp.getString("FIRSTNAME") + " " + temp.getString("LASTNAME"));
                 label.setFont(new Font(20));
                 label.setTextFill(Color.valueOf("#464646"));
 
                 VBox vBox = new VBox(label);
                 vBox.setAlignment(Pos.CENTER_LEFT);
-                vBox.setStyle("-fx-background-color: TRANSPARENT; -fx-background-radius: 10; -fx-padding: 0 0 0 10;" +
-                        "-fx-border-color: #2ed2ff; -fx-border-width: 1.5; -fx-border-radius: 10;" +
-                        "-fx-pref-height: 50;");
+                vBox.setStyle(" -fx-background-color: TRANSPARENT;      -fx-background-radius: 10;" +
+                        "       -fx-border-color: #2ed2ff;              -fx-border-width: 1.5;" +
+                        "       -fx-pref-height: 50;                    -fx-padding: 0 0 0 10;" +
+                        "       -fx-border-radius: 10;");
 
                 map.put(vBox, receiver);
 
@@ -363,8 +379,6 @@ public class Main_Menu_Controller {
                     ResultSet temp = tempstatement.executeQuery("SELECT * FROM USERS_TABLE WHERE USERNAME = '" + username + "'");
                     if(temp.next())
                         System.out.println(temp.getString("FIRSTNAME") + " " + temp.getString("LASTNAME"));
-                    else
-                        System.out.println("FUCK 360");
                 }
                 catch (SQLException throwables) {
                     throwables.printStackTrace();
@@ -381,8 +395,6 @@ public class Main_Menu_Controller {
                     ResultSet temp = tempstatement.executeQuery("SELECT * FROM USERS_TABLE WHERE USERNAME = '" + username + "'");
                     if(temp.next())
                         System.out.println(temp.getString("FIRSTNAME") + " " + temp.getString("LASTNAME"));
-                    else
-                        System.out.println("FUCK 360");
                 }
                 catch (SQLException throwables) {
                     throwables.printStackTrace();
