@@ -10,8 +10,6 @@
     -fx-background-radius: 10;
     -fx-font-size: 11;
     -fx-font-weight: BOLD;
-    -fx-pref-height: 16;
-    -fx-pref-width: 16;
 }
 
 #CloseLabel:hover {
@@ -20,7 +18,6 @@
 
 #CloseLabel:pressed {
     -fx-background-color: #2ed2ff;
-    /*-fx-border-color: #2ed2ff;*/
     -fx-text-fill: WHITE;
 }
 
@@ -33,44 +30,56 @@
 #MainMenuActionPane {
     -fx-border-color: #2ed2ff;
     -fx-border-radius: 10;
-    -fx-border-width: 0 0 0 1.5;
+    -fx-border-width: 0 1.5 0 1.5;
 }
 
-#MainMenuActionPanePrescriptionListView {
-    -fx-background-color: #a7fafa;
+#MainMenuActionPaneMainListView {
+    -fx-background-color: TRANSPARENT;
     -fx-background-radius: 10;
     -fx-border-color: #2ed2ff;
     -fx-border-radius: 10;
-    -fx-border-width: 1.5;
+    -fx-border-width: 0 0 0 1.5;
+}
+
+#MainMenuActionPaneMainListView .list-cell {
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 10;
+    -fx-focus-traversable: false;
+    -fx-padding: 1;
+}
+
+#MainMenuActionPanePrescriptionListView {
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 10;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 10;
+    -fx-border-width: 0 1.5 0 0;
 }
 
 #MainMenuActionPanePrescriptionListView .list-cell {
     -fx-background-color: TRANSPARENT;
     -fx-background-radius: 10;
     -fx-focus-traversable: false;
-    -fx-padding: 0;
+    -fx-padding: 1;
 }
 
 #MainMenuActionPaneTestResultListView {
-    -fx-background-color: #a7fafa;
-    -fx-background-radius: 10;
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 10 0 0 10;
     -fx-border-color: #2ed2ff;
     -fx-border-radius: 10;
-    -fx-border-width: 1.5;
+    -fx-border-width: 0 1.5 0 0;
 }
 
 #MainMenuActionPaneTestResultListView .list-cell {
     -fx-background-color: TRANSPARENT;
     -fx-background-radius: 10;
     -fx-focus-traversable: false;
-    -fx-padding: 0;
+    -fx-padding: 1;
 }
 
 #MainMenuAppointmentListButton {
     -fx-background-radius: 16 0 0 16;
-    -fx-border-color: #2ed2ff;
-    -fx-border-radius: 16 0 0 16;
-    -fx-border-width: 1.5;
     -fx-text-fill: #464646;
 }
 
@@ -81,31 +90,22 @@
 
 #MainMenuMyProfileButton {
     -fx-background-color: #2ed2ff;
-    -fx-background-radius: 16 16 0 0;
-    -fx-border-radius: 16 16 0 0;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
 }
 
 #MainMenuPrescriptionButton {
     -fx-background-radius: 16 0 0 16;
-    -fx-border-color: #2ed2ff;
-    -fx-border-radius: 16 0 0 16;
-    -fx-border-width: 1.5;
     -fx-text-fill: #464646;
 }
 
 #MainMenuSetAppointmentButton {
     -fx-background-radius: 16 0 0 16;
-    -fx-border-color: #2ed2ff;
-    -fx-border-radius: 16 0 0 16;
-    -fx-border-width: 1.5;
     -fx-text-fill: #464646;
 }
 
 #MainMenuTestResultButton {
     -fx-background-radius: 16 0 0 16;
-    -fx-border-color: #2ed2ff;
-    -fx-border-radius: 16 0 0 16;
-    -fx-border-width: 1.5;
     -fx-text-fill: #464646;
 }
 
@@ -124,8 +124,6 @@
     /*-fx-border-width: 1;*/
     -fx-font-size: 11;
     -fx-font-weight: BOLD;
-    -fx-pref-height: 16;
-    -fx-pref-width: 16;
 }
 
 #MinimizeLabel:hover {
@@ -298,7 +296,5 @@
 
 .root {
     -fx-background-color: #f0ffff;
-    -fx-background-radius: 16;
-    -fx-border-radius: 16;
 }
 

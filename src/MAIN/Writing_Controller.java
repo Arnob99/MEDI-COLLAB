@@ -1,18 +1,22 @@
 package MAIN;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.awt.*;
@@ -25,6 +29,18 @@ import java.util.List;
 
 public class Writing_Controller {
 
+    @FXML
+    private AnchorPane WritingCredentialsPane;
+    @FXML
+    private AnchorPane WritingWriteHerePane;
+    @FXML
+    private AnchorPane WritingAnchorPane;
+    @FXML
+    private JFXButton CancelButton;
+    @FXML
+    private JFXButton WritingSendButton;
+    @FXML
+    private Label WritingWritingLabel;
     @FXML
     private JFXTextArea WritingWriteHereTextArea;
     @FXML
@@ -39,6 +55,20 @@ public class Writing_Controller {
     private Label WritingChooseFileLabel;
 
     public File file = null;
+
+    public void init(){
+        if(Medi_collab.role.equals("Doctor"))
+            WritingWritingLabel.setText("Prescription");
+        else if(Medi_collab.role.equals("Staff"))
+            WritingWritingLabel.setText("Test Result");
+        else
+            System.out.println("Serious problem");
+
+        Rectangle2D screen = Screen.getPrimary().getVisualBounds();
+
+        WritingSendButton.setLayoutX(screen.getWidth()/2 - 121);
+        CancelButton.setLayoutX(screen.getWidth()/2 + 1);
+    }
 
     public void handleCloseLabel(MouseEvent mouseEvent) {
         ExitDialogue exitDialogue = new ExitDialogue(mouseEvent);
@@ -126,10 +156,10 @@ public class Writing_Controller {
                 WritingNotifyLabel.setTextFill(Color.RED);
             }
 
-            if(alright)
+            if(alright) {
                 preparedStatement.execute();
-
-            ((Stage)((Node)actionEvent.getSource()).getScene().getWindow()).close();
+                ((Stage) ((Node) actionEvent.getSource()).getScene().getWindow()).close();
+            }
         }
         catch (SQLException | IOException throwables) {
             throwables.printStackTrace();

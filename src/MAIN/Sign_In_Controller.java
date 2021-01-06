@@ -15,6 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.sql.*;
@@ -40,6 +41,10 @@ public class Sign_In_Controller {
     private JFXButton SignInSignUpButton;
     @FXML
     private AnchorPane SignInSignInPane;
+
+    public void init(){
+
+    }
 
     public void handleCloseLabelMouseClicked(MouseEvent mouseEvent) {
         ExitDialogue exitDialogue = new ExitDialogue(mouseEvent);
@@ -106,18 +111,20 @@ public class Sign_In_Controller {
         if(alright){
             Medi_collab.User_Info_Resultset = resultSet;
 
-//            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Main_Menu_" + Medi_collab.role + ".fxml"));
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Main_Menu.fxml"));
 
             Parent root = fxmlLoader.load();
 
-            Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+            ((Stage) ((Node)actionEvent.getSource()).getScene().getWindow()).close();
 
-            Scene scene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
+            Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource(Medi_collab.stylesheetaddress).toExternalForm());
             scene.setFill(Color.TRANSPARENT);
 
+            Stage stage = new Stage();
             stage.setScene(scene);
+            stage.setMaximized(true);
+            stage.initStyle(StageStyle.TRANSPARENT);
             stage.show();
 
             Main_Menu_Controller main_menu_controller = fxmlLoader.getController();

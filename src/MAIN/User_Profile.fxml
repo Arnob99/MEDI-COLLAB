@@ -14,8 +14,8 @@
             <Image url="@../Resources/Images/default_user_icon.png" />
          </image>
       </ImageView>
-      <Label fx:id="CloseLabel" alignment="CENTER" layoutX="970.0" layoutY="14.0" onMouseClicked="#handleCloseLabel" text="X" />
-      <Label fx:id="MinimizeLabel" layoutX="940.0" layoutY="14.0" onMouseClicked="#handleMinimizeLabel" text="—" textFill="#464646">
+      <Label fx:id="CloseLabel" alignment="CENTER" layoutX="970.0" layoutY="14.0" onMouseClicked="#handleCloseLabel" prefHeight="20.0" prefWidth="40.0" text="X" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Label fx:id="MinimizeLabel" layoutX="940.0" layoutY="14.0" onMouseClicked="#handleMinimizeLabel" prefHeight="20.0" prefWidth="30.0" text="—" textFill="#464646" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
          <font>
             <Font size="14.0" />
          </font>
@@ -26,7 +26,7 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <JFXButton fx:id="GoBackButton" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="14.0" onAction="#handleGoBackButton" prefWidth="100.0" ripplerFill="BLACK" text="&lt; Go Back" textAlignment="CENTER" textFill="WHITE">
+      <JFXButton fx:id="GoBackButton" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="14.0" onAction="#handleGoBackButton" prefWidth="100.0" ripplerFill="BLACK" text="&lt; Go Back" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font size="14.0" />
          </font></JFXButton>
@@ -90,7 +90,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <JFXButton fx:id="RefreshButton" buttonType="RAISED" layoutX="14.0" layoutY="47.0" onAction="#handleRefreshButton" prefWidth="100.0" ripplerFill="BLACK" text="Refresh" textFill="WHITE">
+      <JFXButton fx:id="RefreshButton" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="47.0" onAction="#handleRefreshButton" prefWidth="100.0" ripplerFill="BLACK" text="Refresh" textFill="WHITE" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="47.0">
          <font>
             <Font size="14.0" />
          </font>

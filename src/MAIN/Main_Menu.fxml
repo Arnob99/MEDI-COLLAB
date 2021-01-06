@@ -8,44 +8,44 @@
 
 <AnchorPane fx:id="MainMenu" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MAIN.Main_Menu_Controller">
    <children>
-      <Label fx:id="CloseLabel" layoutX="970.0" layoutY="14.0" onMouseClicked="#handleCloseLabel" text="X" />
-      <Label fx:id="MinimizeLabel" layoutX="940.0" layoutY="14.0" onMouseClicked="#handleMinimizeLabel" text="—" />
-      <Label layoutX="402.0" layoutY="14.0" text="Medi-Collab" textFill="#464646">
+      <Label fx:id="CloseLabel" layoutX="970.0" layoutY="14.0" onMouseClicked="#handleCloseLabel" prefHeight="20.0" prefWidth="40.0" text="X" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Label fx:id="MinimizeLabel" layoutX="949.0" layoutY="2.0" onMouseClicked="#handleMinimizeLabel" prefHeight="20.0" prefWidth="30.0" text="—" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0" />
+      <Label layoutX="14.0" layoutY="14.0" prefWidth="196.0" text="Medi-Collab" textFill="#464646" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <JFXButton fx:id="MainMenuMyProfileButton" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="14.0" onAction="#handleMainMenuMyProfileButton" prefWidth="100.0" ripplerFill="BLACK" text="My Profile" textAlignment="CENTER" textFill="WHITE">
+      <JFXButton fx:id="MainMenuMyProfileButton" buttonType="RAISED" focusTraversable="false" layoutX="886.0" layoutY="26.0" onAction="#handleMainMenuMyProfileButton" prefHeight="30.0" prefWidth="100.0" ripplerFill="BLACK" text="My Profile" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="26.0">
          <font>
             <Font size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="MainMenuSetAppointmentButton" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="166.0" onAction="#handleMainMenuSetAppointmentButton" onMouseEntered="#MainMenuSetAppointmentButtonMouseEntered" onMouseExited="#MainMenuSetAppointmentButtonMouseExited" prefWidth="150.0" ripplerFill="BLACK" text="Set Appointments" textFill="WHITE">
+      <JFXButton fx:id="MainMenuSetAppointmentButton" alignment="CENTER" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="166.0" onAction="#handleMainMenuSetAppointmentButton" onMouseEntered="#MainMenuSetAppointmentButtonMouseEntered" onMouseExited="#MainMenuSetAppointmentButtonMouseExited" prefWidth="150.0" ripplerFill="BLACK" text="Set Appointments" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="MainMenuAppointmentListButton" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="211.0" onAction="#handleMainMenuAppointmentListButton" onMouseEntered="#MainMenuAppointmentListButtonMouseEntered" onMouseExited="#MainMenuAppointmentListButtonMouseExited" prefWidth="150.0" ripplerFill="BLACK" text="Appointment List" textFill="WHITE">
+      <JFXButton fx:id="MainMenuAppointmentListButton" alignment="CENTER" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="211.0" onAction="#handleMainMenuAppointmentListButton" onMouseEntered="#MainMenuAppointmentListButtonMouseEntered" onMouseExited="#MainMenuAppointmentListButtonMouseExited" prefWidth="150.0" ripplerFill="BLACK" text="Appointment List" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="MainMenuPrescriptionButton" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="256.0" onAction="#handleMainMenuPrescriptionButton" onMouseEntered="#MainMenuPrescriptionButtonMouseEntered" onMouseExited="#MainMenuPrescriptionButtonMouseExited" prefWidth="150.0" ripplerFill="BLACK" text="Prescription" textFill="WHITE">
+      <JFXButton fx:id="MainMenuPrescriptionButton" alignment="CENTER" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="256.0" onAction="#handleMainMenuPrescriptionButton" onMouseEntered="#MainMenuPrescriptionButtonMouseEntered" onMouseExited="#MainMenuPrescriptionButtonMouseExited" prefWidth="150.0" ripplerFill="BLACK" text="Prescription" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="MainMenuTestResultButton" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="301.0" onAction="#handleMainMenuTestResultButton" onMouseEntered="#MainMenuTestResultButtonMouseEntered" onMouseExited="#MainMenuTestResultButtonMouseExited" prefWidth="150.0" ripplerFill="BLACK" text="Test Result" textFill="WHITE">
+      <JFXButton fx:id="MainMenuTestResultButton" alignment="CENTER" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="301.0" onAction="#handleMainMenuTestResultButton" onMouseEntered="#MainMenuTestResultButtonMouseEntered" onMouseExited="#MainMenuTestResultButtonMouseExited" prefWidth="150.0" ripplerFill="BLACK" text="Test Result" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="MainMenuSignOutButton" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="456.0" onAction="#handleMainMenuSignOutButton" prefWidth="100.0" ripplerFill="BLACK" text="Sign Out" textFill="WHITE">
+      <JFXButton fx:id="MainMenuSignOutButton" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="456.0" onAction="#handleMainMenuSignOutButton" prefWidth="100.0" ripplerFill="BLACK" text="Sign Out" textFill="WHITE" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0">
          <font>
             <Font size="14.0" />
          </font>
       </JFXButton>
-      <AnchorPane fx:id="MainMenuActionPane" layoutX="163.0" layoutY="63.0" prefHeight="423.0" prefWidth="823.0">
+      <AnchorPane fx:id="MainMenuActionPane" layoutX="163.0" layoutY="67.0" prefHeight="420.0" prefWidth="823.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="163.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="67.0">
          <children>
             <Label fx:id="MainMenuActionPaneSetAppointmentsLabel" alignment="CENTER" focusTraversable="false" layoutX="14.0" layoutY="14.0" prefHeight="359.0" prefWidth="792.0" text="Set Appointments" visible="false">
                <font>
@@ -57,16 +57,12 @@
                   <Font size="48.0" />
                </font>
             </Label>
-            <JFXListView fx:id="MainMenuActionPanePrescriptionListView" focusTraversable="false" prefHeight="423.0" prefWidth="275.0" visible="false" />
-            <JFXButton fx:id="MainMenuComposeButton" buttonType="RAISED" focusTraversable="false" layoutX="709.0" layoutY="379.0" onAction="#handleMainMenuComposeButton" prefWidth="100.0" ripplerFill="BLACK" text="Compose" textFill="WHITE" visible="false">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXListView fx:id="MainMenuActionPaneTestResultListView" focusTraversable="false" prefHeight="423.0" prefWidth="275.0" visible="false" />
+            <JFXListView fx:id="MainMenuActionPanePrescriptionListView" focusTraversable="false" prefHeight="423.0" prefWidth="274.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <JFXListView fx:id="MainMenuActionPaneTestResultListView" focusTraversable="false" prefHeight="423.0" prefWidth="274.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <JFXListView fx:id="MainMenuActionPaneMainListView" focusTraversable="false" layoutX="276.0" prefHeight="419.0" prefWidth="545.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="276.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>
-      <JFXButton fx:id="RefreshButton" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="47.0" onAction="#handleRefreshButton" prefWidth="100.0" ripplerFill="BLACK" text="Refresh" textFill="WHITE">
+      <JFXButton fx:id="MainMenuComposeButton" buttonType="RAISED" focusTraversable="false" layoutX="776.0" layoutY="26.0" onAction="#handleMainMenuComposeButton" prefWidth="100.0" ripplerFill="BLACK" text="Compose" textFill="WHITE" AnchorPane.rightAnchor="124.0" AnchorPane.topAnchor="26.0">
          <font>
             <Font size="14.0" />
          </font>

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MAIN.Sign_In_Controller">
+<AnchorPane prefHeight="500.0" prefWidth="1000.0" style="-fx-background-radius: 10;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MAIN.Sign_In_Controller">
    <children>
       <AnchorPane fx:id="SignInSignInPane" layoutX="611.0" layoutY="65.0" prefHeight="370.0" prefWidth="324.0">
          <children>
@@ -63,12 +63,12 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <Label fx:id="CloseLabel" alignment="CENTER" layoutX="970.0" layoutY="14.0" onMouseClicked="#handleCloseLabelMouseClicked" text="X" textAlignment="CENTER" textFill="#464646">
+      <Label fx:id="CloseLabel" alignment="CENTER" layoutX="982.0" layoutY="6.0" onMouseClicked="#handleCloseLabelMouseClicked" prefHeight="20.0" prefWidth="40.0" text="X" textAlignment="CENTER" textFill="#464646" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font size="11.0" />
          </font>
       </Label>
-      <Label fx:id="MinimizeLabel" alignment="CENTER" layoutX="940.0" layoutY="14.0" onMouseClicked="#handleMinimizeLabelClicked" prefHeight="16.0" prefWidth="16.0" text="—" textAlignment="CENTER" textFill="#464646">
+      <Label fx:id="MinimizeLabel" alignment="CENTER" layoutX="940.0" layoutY="14.0" onMouseClicked="#handleMinimizeLabelClicked" prefHeight="20.0" prefWidth="30.0" text="—" textAlignment="CENTER" textFill="#464646" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font size="14.0" />
          </font>
