@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -9,91 +10,72 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MAIN.User_Profile_Controller">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="837.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Resources/Images/default_user_icon.png" />
-         </image>
-      </ImageView>
       <Label fx:id="CloseLabel" alignment="CENTER" layoutX="970.0" layoutY="14.0" onMouseClicked="#handleCloseLabel" prefHeight="20.0" prefWidth="40.0" text="X" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Label fx:id="MinimizeLabel" layoutX="940.0" layoutY="14.0" onMouseClicked="#handleMinimizeLabel" prefHeight="20.0" prefWidth="30.0" text="—" textFill="#464646" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <JFXButton fx:id="UserProfileChangePicButton" alignment="CENTER" focusTraversable="false" layoutX="837.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleUserProfileChangePicButton" prefWidth="150.0" ripplerFill="#a7fafa" stylesheets="@../Resources/Medi_collab_Stylesheet.css" text="Change Pic" textAlignment="CENTER" textFill="#464646" underline="true" />
-      <Label layoutX="449.0" layoutY="14.0" text="Profile" textAlignment="CENTER" textFill="#464646">
+      <JFXButton fx:id="UserProfileChangePicButton" alignment="CENTER" focusTraversable="false" layoutX="425.0" layoutY="461.0" mnemonicParsing="false" onAction="#handleUserProfileChangePicButton" prefWidth="150.0" ripplerFill="#a7fafa" stylesheets="@../Resources/Medi_collab_Stylesheet.css" text="Update Profile" textAlignment="CENTER" textFill="#464646" underline="true" AnchorPane.bottomAnchor="14.0" />
+      <Label fx:id="UserProfileUsernameInfoLabel" alignment="CENTER" layoutX="163.0" layoutY="258.0" prefHeight="25.0" prefWidth="660.0" textAlignment="CENTER" textFill="#464646" AnchorPane.leftAnchor="163.0" AnchorPane.rightAnchor="163.0" AnchorPane.topAnchor="258.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="GoBackButton" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="14.0" onAction="#handleGoBackButton" prefHeight="30.0" prefWidth="30.0" ripplerFill="BLACK" text="&lt;" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font size="14.0" />
+         </font></JFXButton>
+      <Label fx:id="UserProfileAgeLabel" focusTraversable="false" layoutX="171.0" layoutY="298.0" prefHeight="25.0" prefWidth="110.0" text="  Age" textFill="#464646" AnchorPane.leftAnchor="171.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="UserProfileEmailLabel" focusTraversable="false" layoutX="171.0" layoutY="338.0" prefHeight="25.0" prefWidth="110.0" text="  Email" textFill="#464646" AnchorPane.leftAnchor="171.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="UserProfileAddressLabel" focusTraversable="false" layoutX="171.0" layoutY="378.0" prefHeight="25.0" prefWidth="110.0" text="  Address" textFill="#464646" AnchorPane.leftAnchor="171.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="UserProfileNameInfoLabel" alignment="CENTER" focusTraversable="false" layoutX="163.0" layoutY="203.0" prefHeight="25.0" prefWidth="660.0" textFill="#464646" AnchorPane.leftAnchor="163.0" AnchorPane.rightAnchor="163.0" AnchorPane.topAnchor="203.0">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <JFXButton fx:id="GoBackButton" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="14.0" onAction="#handleGoBackButton" prefWidth="100.0" ripplerFill="BLACK" text="&lt; Go Back" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
-         <font>
-            <Font size="14.0" />
-         </font></JFXButton>
-      <Label fx:id="UserProfileNameLabel" layoutX="64.0" layoutY="182.0" prefHeight="25.0" prefWidth="103.0" text="  Name" textFill="#464646">
+      <Label fx:id="UserProfileAgeInfoLabel" focusTraversable="false" layoutX="284.0" layoutY="298.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646" AnchorPane.leftAnchor="284.0" AnchorPane.rightAnchor="170.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="UserProfileUsernameLabel" layoutX="64.0" layoutY="142.0" prefHeight="25.0" prefWidth="103.0" text="  Username" textFill="#464646">
+      <Label fx:id="UserProfileEmailInfoLabel" focusTraversable="false" layoutX="284.0" layoutY="338.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646" AnchorPane.leftAnchor="284.0" AnchorPane.rightAnchor="170.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="UserProfileAgeLabel" layoutX="64.0" layoutY="222.0" prefHeight="25.0" prefWidth="103.0" text="  Age" textFill="#464646">
+      <Label fx:id="UserProfileAddressInfoLabel" focusTraversable="false" layoutX="284.0" layoutY="378.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646" AnchorPane.leftAnchor="284.0" AnchorPane.rightAnchor="170.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="UserProfileEmailLabel" layoutX="64.0" layoutY="262.0" prefHeight="25.0" prefWidth="103.0" text="  Email" textFill="#464646">
+      <Label fx:id="UserProfileContactNoLabel" focusTraversable="false" layoutX="171.0" layoutY="418.0" prefHeight="25.0" prefWidth="110.0" text="  Contact No." textFill="#464646" AnchorPane.leftAnchor="171.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="UserProfileAddressLabel" layoutX="64.0" layoutY="302.0" prefHeight="25.0" prefWidth="103.0" text="  Address" textFill="#464646">
+      <Label fx:id="UserProfileContactNoInfoLabel" focusTraversable="false" layoutX="284.0" layoutY="418.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646" AnchorPane.leftAnchor="284.0" AnchorPane.rightAnchor="170.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="UserProfileUsernameInfoLabel" layoutX="170.0" layoutY="142.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="UserProfileNameInfoLabel" layoutX="170.0" layoutY="182.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="UserProfileAgeInfoLabel" layoutX="170.0" layoutY="222.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="UserProfileEmailInfoLabel" layoutX="170.0" layoutY="262.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="UserProfileAddressInfoLabel" layoutX="170.0" layoutY="302.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="UserProfileContactNoLabel" layoutX="64.0" layoutY="342.0" prefHeight="25.0" prefWidth="103.0" text="  Contact No." textFill="#464646">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="UserProfileContactNoInfoLabel" layoutX="170.0" layoutY="342.0" prefHeight="25.0" prefWidth="600.0" textFill="#464646">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <JFXButton fx:id="RefreshButton" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="47.0" onAction="#handleRefreshButton" prefWidth="100.0" ripplerFill="BLACK" text="Refresh" textFill="WHITE" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="47.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </JFXButton>
+      <ImageView fx:id="UserProfilePictureImageView" fitHeight="150.0" fitWidth="200.0" layoutX="425.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="44.0">
+         <image>
+            <Image url="@../Resources/Images/default_user_icon.png" />
+         </image>
+      </ImageView>
+      <JFXTreeTableView fx:id="UserProfileInfoTableView" editable="true" focusTraversable="false" layoutX="132.0" layoutY="67.0" prefHeight="400.0" prefWidth="660.0" visible="false" AnchorPane.bottomAnchor="67.0" AnchorPane.leftAnchor="163.0" AnchorPane.rightAnchor="177.0" AnchorPane.topAnchor="67.0" />
    </children>
 </AnchorPane>

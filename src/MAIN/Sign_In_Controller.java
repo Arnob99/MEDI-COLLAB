@@ -65,43 +65,22 @@ public class Sign_In_Controller {
         signinusername = SignInUsernameTextField.getText();
         signinpassword = SignInPasswordTextField.getText();
 
-        Medi_collab.admin_logged_in = false;
-
         boolean alright = false;
         Statement statement = null;
         ResultSet resultSet = null;
 
         try {
             statement = Medi_collab.connection().createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM USERS_TABLE " +
+                    "WHERE USERNAME = '" + signinusername + "' " +
+                    "AND PASSWORD = '" + signinpassword + "'");
 
-            resultSet = statement.executeQuery("SELECT * " +
-                    "FROM ADMIN_TABLE " +
-                    "WHERE USERNAME = '" + signinusername + "'");
-
-            if(resultSet.next()) {
-                if (resultSet.getString("PASSWORD").equals(signinpassword)) {
-                    Medi_collab.admin_logged_in = true;
-                    alright = true;
-                }
-                else
-                    SignInNotifyLabel.setText("username or password is incorrect");
+            if(resultSet.next()){
+                alright = true;
+                Medi_collab.role = resultSet.getString("ROLE");
             }
-            else{
-                resultSet = statement.executeQuery("SELECT * " +
-                        "FROM USERS_TABLE " +
-                        "WHERE USERNAME = '" + signinusername + "'");
-
-                if(resultSet.next()){
-                    if(resultSet.getString("PASSWORD").equals(signinpassword)) {
-                        alright = true;
-                        Medi_collab.role = resultSet.getString("ROLE");
-                    }
-                    else
-                        SignInNotifyLabel.setText("username or password is incorrect");
-                }
-                else
-                    SignInNotifyLabel.setText("username or password is incorrect");
-            }
+            else
+                SignInNotifyLabel.setText("username or password is incorrect");
         }
         catch (SQLException throwable) {
             throwable.printStackTrace();

@@ -1,28 +1,17 @@
 package MAIN;
 
-import com.jfoenix.controls.JFXButton;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.sql.*;
-import java.util.Optional;
+import java.util.Objects;
 
 public class Medi_collab extends Application {
-    public static boolean admin_logged_in = false;
     public static ResultSet User_Info_Resultset = null;
     public static String stylesheetaddress = "/Resources/Medi_collab_Stylesheet.css", role = "";
 //    public static String dbusername, dbpassword;
@@ -55,124 +44,42 @@ public class Medi_collab extends Application {
         }
     }
 
-    public static void main(String[] args) {
-        try {
-            DatabaseMetaData databaseMetaData = connection().getMetaData();
+    public static void main(String[] args) throws SQLException {
+        DatabaseMetaData databaseMetaData = Objects.requireNonNull(connection()).getMetaData();
 
-            ResultSet resultSet = databaseMetaData.getTables(null, null, "ADMIN_TABLE", null);
+        ResultSet resultSet = databaseMetaData.getTables(null, null, "USERS_TABLE", null);
 
-            if(!resultSet.next()){
-                System.out.println("INITIALIZING FOR THE FIRST TIME!");
-                try {
-                    Statement statement = connection().createStatement();
+        if(!resultSet.next()){
+            System.out.println("INITIALIZING FOR THE FIRST TIME!");
+            Statement statement = Objects.requireNonNull(connection()).createStatement();
 
-                    statement.executeQuery("CREATE TABLE ADMIN_TABLE(" +
-                            "USERNAME VARCHAR2(30), " +
-                            "PASSWORD VARCHAR2(30))");
+            statement.executeQuery("CREATE TABLE USERS_TABLE (" +
+                    "USERNAME VARCHAR2(20)," +
+                    "PASSWORD VARCHAR2(30)," +
+                    "FIRSTNAME VARCHAR2(20)," +
+                    "LASTNAME VARCHAR2(15)," +
+                    "DATEOFBIRTH DATE," +
+                    "EMAIL VARCHAR2(30)," +
+                    "ROLE VARCHAR2(15)," +
+                    "ADDRESS VARCHAR2(100)," +
+                    "CONTACT VARCHAR2(15)" +
+                    ")");
 
-                    statement.executeQuery("INSERT INTO ADMIN_TABLE " +
-                            "VALUES ('admin', 'password')");
+            resultSet = databaseMetaData.getTables(null, null, "SHARED_FILES", null);
 
-                    statement.executeQuery("DROP TABLE USERS_TABLE");
+            if(resultSet.next())
+                statement.executeQuery("DROP TABLE SHARED_FILES");
 
-                    statement.executeQuery("CREATE TABLE USERS_TABLE (" +
-                            "USERNAME VARCHAR2(20)," +
-                            "PASSWORD VARCHAR2(30)," +
-                            "FIRSTNAME VARCHAR2(20)," +
-                            "LASTNAME VARCHAR2(15)," +
-                            "DATEOFBIRTH DATE," +
-                            "EMAIL VARCHAR2(30)," +
-                            "ROLE VARCHAR2(15)," +
-                            "ADDRESS VARCHAR2(100)," +
-                            "CONTACT VARCHAR2(15)" +
-                            ")");
-
-                    statement.executeQuery("DROP TABLE SHARED_FILES");
-
-                    statement.executeQuery("CREATE TABLE SHARED_FILES (" +
-                            "    SENDER VARCHAR2(20), " +
-                            "    RECEIVER VARCHAR2(20)," +
-                            "    SUBJECT VARCHAR2(250)," +
-                            "    DESCRIPTION BLOB," +
-                            "    WRITING BLOB," +
-                            "    SHARING_FILE BLOB," +
-                            "    SHARING_DATE DATE)");
-
-//                    statement.executeQuery("CREATE TABLE PENDING_USERS_TABLE(" +
-//                            ")");
-                }
-                catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                }
-            }
-        }
-        catch (SQLException throwables) {
-            throwables.printStackTrace();
+            statement.executeQuery("CREATE TABLE SHARED_FILES (" +
+                    "    SENDER VARCHAR2(20), " +
+                    "    RECEIVER VARCHAR2(20)," +
+                    "    SUBJECT VARCHAR2(250)," +
+                    "    DESCRIPTION BLOB," +
+                    "    WRITING BLOB," +
+                    "    SHARING_FILE BLOB," +
+                    "    SHARING_DATE DATE)");
         }
 
         launch(args);
-
-//        try {
-//            PreparedStatement preparedStatement = connection().prepareStatement("insert into pic values (?, ?)");
-//
-//            InputStream inputStream = new FileInputStream("E:\\Pictures\\sample.jpg");
-//
-//            preparedStatement.setString(1, "sample image");
-//            preparedStatement.setBlob(2, inputStream);
-//
-//            preparedStatement.execute();
-//
-//            System.out.println("Done!!!!");
-//        }
-//        catch (SQLException | FileNotFoundException throwable) {
-//            throwable.printStackTrace();
-//        }
-
-//        try {
-//            Statement statement = connection().createStatement();
-//
-//            ResultSet resultSet = statement.executeQuery("select * from PIC");
-//
-//            while(resultSet.next()){
-//                Blob blob = resultSet.getBlob(2);
-//                byte b[] = blob.getBytes(1, (int) blob.length());
-//
-//                FileOutputStream fileOutputStream = new FileOutputStream("E:\\hehe.jpg");
-//                fileOutputStream.write(b);
-//                fileOutputStream.close();
-//            }
-//            System.out.println("Done!!!");
-//            connection().close();
-//        }
-//        catch (SQLException | FileNotFoundException throwables) {
-//            throwables.printStackTrace();
-//        }
-//        catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-//        try {
-//            Class.forName("oracle.jdbc.driver.OracleDriver");
-//
-//            Connection connection = DriverManager.getConnection(url, username, password);
-//
-//            Statement statement = connection.createStatement();
-//
-//            System.out.println("Connection to Database Successful!");
-//
-//            ResultSet resultSet = statement.executeQuery(sql);
-//
-//            while (resultSet.next())
-//                average = resultSet.getDouble(1);
-//
-//            System.out.println("Average age: " + average);
-//
-//            connection.close();
-//            statement.close();
-//            resultSet.close();
-//        }
-//        catch (ClassNotFoundException | SQLException e) {
-//            e.printStackTrace();
-//        }
     }
 }

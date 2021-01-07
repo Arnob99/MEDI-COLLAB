@@ -90,6 +90,7 @@ public class Writing_Controller {
         try {
             sender = Medi_collab.User_Info_Resultset.getString("USERNAME");
             String receiver = WritingToTextField.getText();
+
             PreparedStatement preparedStatement = Medi_collab.connection().prepareStatement("INSERT INTO SHARED_FILES " +
                     "VALUES (?, ?, ?, ?, ?, ?, SYSDATE)");
 
@@ -102,11 +103,11 @@ public class Writing_Controller {
             File temp = null;
             FileWriter fileWriter = null;
 
-            if(WritingDescriptionTextArea.getText().length() != 0){
+            if(WritingDescriptionTextArea.getText().strip().length() != 0){
                 temp = new File("temp_description.txt");
 
                 fileWriter = new FileWriter(temp);
-                fileWriter.write(WritingDescriptionTextArea.getText());
+                fileWriter.write(WritingDescriptionTextArea.getText().strip());
                 fileWriter.close();
 
                 fileInputStream = new FileInputStream(temp);
@@ -121,7 +122,7 @@ public class Writing_Controller {
             temp = new File("temp_writing.txt");
 
             fileWriter = new FileWriter(temp);
-            fileWriter.write(WritingWriteHereTextArea.getText());
+            fileWriter.write(WritingWriteHereTextArea.getText().strip());
             fileWriter.close();
 
             fileInputStream = new FileInputStream(temp);
@@ -142,7 +143,7 @@ public class Writing_Controller {
 
             Statement statement = Medi_collab.connection().createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT USERNAME FROM USERS_TABLE " +
-                    "WHERE USERNAME = '" + receiver + "'");
+                    "WHERE USERNAME = '" + receiver + "' AND ROLE = 'Patient'");
 
             if(!resultSet.next()) {
                 alright = false;
@@ -150,7 +151,7 @@ public class Writing_Controller {
                 WritingNotifyLabel.setTextFill(Color.RED);
             }
 
-            if(WritingWriteHereTextArea.getText().length() == 0){
+            if(WritingWriteHereTextArea.getText().strip().length() == 0){
                 alright = false;
                 WritingNotifyLabel.setText("Main Writing Field Cannot Be Empty!");
                 WritingNotifyLabel.setTextFill(Color.RED);

@@ -92,7 +92,7 @@ public class Sign_Up_Controller {
 
         SignUpNotifyLabel.setText("");
 
-        username = SignUpUsername.getText();
+        username = SignUpUsername.getText().strip();
         try {
             ResultSet resultSet = statement.executeQuery("select * from USERS_TABLE where USERNAME = '" + username + "'");
             if(resultSet.next()){
@@ -121,25 +121,25 @@ public class Sign_Up_Controller {
             alright = false;
         }
 
-        fname = SignUpFirstName.getText();
+        fname = SignUpFirstName.getText().strip();
         if(fname.length() == 0 && alright) {
             SignUpNotifyLabel.setText("You must fill up all the fields.");
             alright = false;
         }
 
-        lname = SignUpLastName.getText();
+        lname = SignUpLastName.getText().strip();
         if(lname.length() == 0 && alright) {
             SignUpNotifyLabel.setText("You must fill up all the fields.");
             alright = false;
         }
 
-        email = SignUpEmailAddress.getText();
+        email = SignUpEmailAddress.getText().strip();
         if(email.length() == 0 && alright) {
             SignUpNotifyLabel.setText("You must fill up all the fields.");
             alright = false;
         }
 
-        dob = SignUpDateofBirth.getText();
+        dob = SignUpDateofBirth.getText().strip();
         if(dob.length() == 0 && alright){
             SignUpNotifyLabel.setText("You must fill up all the fields.");
             alright = false;
@@ -156,13 +156,13 @@ public class Sign_Up_Controller {
             alright = false;
         }
 
-        address = SignUpAddress.getText();
+        address = SignUpAddress.getText().strip();
         if(address.length() == 0 && alright){
             SignUpNotifyLabel.setText("You must fill up all the fields.");
             alright = false;
         }
 
-        contact = SignUpContactNo.getText();
+        contact = SignUpContactNo.getText().strip();
         if(contact.length() == 0 && alright){
             SignUpNotifyLabel.setText("You must fill up all the fields.");
             alright = false;

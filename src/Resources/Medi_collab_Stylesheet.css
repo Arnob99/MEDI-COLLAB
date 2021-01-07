@@ -23,8 +23,8 @@
 
 #GoBackButton {
     -fx-background-color: #2ed2ff;
-    -fx-background-radius: 16 16 0 0;
-    -fx-border-radius: 16 16 0 0;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
 }
 
 #MainMenuActionPane {
@@ -237,24 +237,14 @@
     -fx-background-radius: 0 10 10 0;
 }
 
-#UserProfileNameLabel {
-    -fx-background-color: #a7fafa;
-    -fx-background-radius: 10 0 0 10;
-}
-
 #UserProfileNameInfoLabel {
-    -fx-background-color: #a7fafa;
-    -fx-background-radius: 0 10 10 0;
-}
-
-#UserProfileUsernameLabel {
-    -fx-background-color: #a7fafa;
-    -fx-background-radius: 10 0 0 10;
+    -fx-background-color: TRANSPARENT;
+    -fx-text-alignment: CENTER;
 }
 
 #UserProfileUsernameInfoLabel {
-    -fx-background-color: #a7fafa;
-    -fx-background-radius: 0 10 10 0;
+    -fx-background-color: TRANSPARENT;
+    -fx-text-alignment: CENTER;
 }
 
 #WritingChooseFileButton {
