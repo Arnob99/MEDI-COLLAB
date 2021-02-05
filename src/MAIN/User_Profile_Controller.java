@@ -1,6 +1,9 @@
 package MAIN;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,70 +18,97 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class User_Profile_Controller implements Initializable {
-    @FXML private JFXButton UserProfileChangePicButton;
+    @FXML private JFXDatePicker UserProfileDateofBirthInfoDatePicker;
+    @FXML private JFXTextArea UserProfileDescriptionTextArea;
+    @FXML private Label UserProfileNotifyLabel;
+    @FXML private JFXButton UserProfileUpdateProfileButton;
+    @FXML private JFXTextField UserProfileAgeInfoTextField;
+    @FXML private JFXTextField UserProfileEmailInfoTextField;
+    @FXML private JFXTextField UserProfileAddressInfoTextField;
+    @FXML private JFXTextField UserProfileContactNoInfoTextField;
     @FXML private Label UserProfileUsernameInfoLabel;
     @FXML private ImageView UserProfilePictureImageView;
-    @FXML private Label UserProfileAddressInfoLabel;
-    @FXML private Label UserProfileAgeInfoLabel;
-    @FXML private Label UserProfileContactNoInfoLabel;
-    @FXML private Label UserProfileEmailInfoLabel;
     @FXML private Label UserProfileNameInfoLabel;
+
+    public String username, name, age, email, address, contact, dob, description;
+    public static boolean update_profile = false, save = false, cancel = false;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Rectangle2D screen = Screen.getPrimary().getVisualBounds();
 
         UserProfilePictureImageView.setLayoutX(screen.getWidth()/2 - 75);
-        UserProfileChangePicButton.setLayoutX(screen.getWidth()/2 - 75);
-        UserProfileChangePicButton.setVisible(false);
-
-        ShowUserInfo();
-    }
-
-    public String username, name, age, email, address, contact;
-
-    public void ShowUserInfo() {
-        name = age = email = address = contact = "UNKNOWN";
-
-        Statement statement;
-        ResultSet resultSet = Medi_collab.User_Info_Resultset;
+        UserProfileUpdateProfileButton.setLayoutX(screen.getWidth()/2 - 75);
+        UserProfileUpdateProfileButton.setVisible(false);
+        UserProfileDateofBirthInfoDatePicker.setPrefWidth(screen.getWidth()/2 - UserProfileDateofBirthInfoDatePicker.getLayoutX() - 10);
+        UserProfileDateofBirthInfoDatePicker.setPromptText("Date of Birth (DD-MM-YYYY)");
+        UserProfileDateofBirthInfoDatePicker.setConverter(Medi_collab.localDateStringConverter);
+        UserProfileAgeInfoTextField.setPrefWidth(UserProfileDateofBirthInfoDatePicker.getPrefWidth());
+        UserProfileEmailInfoTextField.setPrefWidth(UserProfileDateofBirthInfoDatePicker.getPrefWidth());
+        UserProfileContactNoInfoTextField.setPrefWidth(UserProfileDateofBirthInfoDatePicker.getPrefWidth());
 
         try {
-            statement = Objects.requireNonNull(Medi_collab.connection()).createStatement();
-            username = resultSet.getString("USERNAME");
-            name = resultSet.getString("FIRSTNAME") + " " + resultSet.getString("LASTNAME");
-            email = resultSet.getString("EMAIL");
-            address = resultSet.getString("ADDRESS");
-            contact = resultSet.getString("CONTACT");
-
-            ResultSet temp = statement.executeQuery("SELECT TRUNC(" +
-                    "(SYSDATE - (SELECT DATEOFBIRTH FROM USERS_TABLE " +
-                    "WHERE USERNAME = '" + username + "'))/365.25) FROM DUAL");
-            if(temp.next())
-                age = temp.getString(1);
+            ShowUserInfo();
         }
         catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
+
+    public void ShowUserInfo() throws SQLException {
+        name = age = email = address = contact = dob = "null";
+        description = "";
+
+        Statement statement;
+        ResultSet resultSet = Medi_collab.User_Info_Resultset;
+
+        statement = Objects.requireNonNull(Medi_collab.connection()).createStatement();
+        username = resultSet.getString("USERNAME");
+        name = resultSet.getString("FIRSTNAME") + " " + resultSet.getString("LASTNAME");
+        email = resultSet.getString("EMAIL");
+        address = resultSet.getString("ADDRESS");
+        contact = resultSet.getString("CONTACT");
+        ResultSet resultSet1 = statement.executeQuery("SELECT TO_CHAR(DATEOFBIRTH, 'DD-MM-YYYY') AS DATEOFBIRTH " +
+                "FROM USERS_TABLE WHERE USERNAME = '" + username + "'");
+        if(resultSet1.next())
+            dob = resultSet1.getString("DATEOFBIRTH");
+
+        resultSet1 = statement.executeQuery("SELECT TRUNC(" +
+                "(SYSDATE - (SELECT DATEOFBIRTH FROM USERS_TABLE " +
+                "WHERE USERNAME = '" + username + "'))/365.25) FROM DUAL");
+        if(resultSet1.next())
+            age = resultSet1.getString(1);
+
+        if(resultSet.getString("DESCRIPTION") != null)
+            description = resultSet.getString("DESCRIPTION");
+
+        if(dob == null || email == null || contact == null || address == null)
+            UserProfileNotifyLabel.setText("Please Complete Your Profile.");
 
         UserProfileUsernameInfoLabel.setText(username);
         UserProfileNameInfoLabel.setText(name);
-        UserProfileAgeInfoLabel.setText("   " + age);
-        UserProfileEmailInfoLabel.setText("   " + email);
-        UserProfileAddressInfoLabel.setText("   " + address);
-        UserProfileContactNoInfoLabel.setText("   " + contact);
-    }
 
-    public void handleUserProfileChangePicButton() {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate localDate = LocalDate.parse(dob, dateTimeFormatter);
+
+        UserProfileDateofBirthInfoDatePicker.setValue(localDate);
+        UserProfileAgeInfoTextField.setText(age);
+        UserProfileEmailInfoTextField.setText(email);
+        UserProfileAddressInfoTextField.setText(address);
+        UserProfileContactNoInfoTextField.setText(contact);
+        UserProfileDescriptionTextArea.setText(description);
     }
 
     public void handleCloseLabel(MouseEvent mouseEvent) {
@@ -91,28 +121,85 @@ public class User_Profile_Controller implements Initializable {
     }
 
     public void handleGoBackButton(ActionEvent actionEvent) throws IOException, SQLException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Main_Menu.fxml"));
+        if (UserProfileUpdateProfileButton.isVisible()){
+            SaveChanges saveChanges = new SaveChanges();
+            saveChanges.OpenDialogue();
 
-        Parent root = fxmlLoader.load();
+            if(save)
+                handleUserProfileUpdateProfileButton();
+        }
 
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        if(!cancel) {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Main_Menu.fxml"));
 
-        Scene scene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
-        scene.getStylesheets().add(Medi_collab.stylesheetaddress);
-        scene.setFill(Color.TRANSPARENT);
+            Parent root = fxmlLoader.load();
 
-        stage.setScene(scene);
-        stage.show();
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
-        Main_Menu_Controller main_menu_controller = fxmlLoader.getController();
-        main_menu_controller.init();
+            Scene scene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
+            scene.getStylesheets().add("/Resources/CSS/Main_Menu.css");
+            scene.setFill(Color.TRANSPARENT);
+
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 
-//    public void handleRefreshButton() throws SQLException {
-//        Statement statement = Objects.requireNonNull(Medi_collab.connection()).createStatement();
-//
-//        Medi_collab.User_Info_Resultset = statement.executeQuery("SELECT * FROM USERS_TABLE WHERE USERNAME = '" + username + "'");
-//
-//        ShowUserInfo();
-//    }
+    public void handleUserProfileAddressInfoTextField() {
+        UserProfileUpdateProfileButton.setVisible(true);
+    }
+
+    public void handleUserProfileContactNoInfoTextField() {
+        UserProfileUpdateProfileButton.setVisible(true);
+    }
+
+    public void handleUserProfileDateofBirthInfoDatePicker() {
+        UserProfileUpdateProfileButton.setVisible(true);
+    }
+
+    public void handleUserProfileDescriptionTextArea() {
+        UserProfileUpdateProfileButton.setVisible(true);
+    }
+
+    public void handleUserProfileEmailInfoTextField() {
+        UserProfileUpdateProfileButton.setVisible(true);
+    }
+
+    public void handleUserProfileUpdateProfileButton() throws SQLException {
+        ConfirmationDialogue confirmationDialogue = new ConfirmationDialogue();
+        confirmationDialogue.OpenDialogue();
+
+        if(update_profile) {
+            Statement statement = Objects.requireNonNull(Medi_collab.connection()).createStatement();
+
+            String user = Medi_collab.User_Info_Resultset.getString("USERNAME"),
+                    newdob = UserProfileDateofBirthInfoDatePicker.getValue().toString(),
+                    newemail = UserProfileEmailInfoTextField.getText().strip(),
+                    newaddress = UserProfileAddressInfoTextField.getText().strip(),
+                    newcontact = UserProfileContactNoInfoTextField.getText().strip(),
+                    newdescription = UserProfileDescriptionTextArea.getText().strip();
+
+            System.out.println(user);
+
+            statement.executeQuery("UPDATE USERS_TABLE " +
+                    "SET DATEOFBIRTH = TO_DATE('" + newdob + "', 'DD-MM-YYYY'), " +
+                    "EMAIL = '" + newemail + "', " +
+                    "ADDRESS = '" + newaddress + "', " +
+                    "CONTACT = '" + newcontact + "', " +
+                    "DESCRIPTION = '" + newdescription + "'" +
+                    "WHERE USERNAME = '" + user + "'");
+
+            Medi_collab.User_Info_Resultset = statement.executeQuery("SELECT * FROM USERS_TABLE " +
+                    "WHERE USERNAME = '" + user + "'");
+
+            Medi_collab.User_Info_Resultset.next();
+
+            update_profile = false;
+
+            UserProfileUpdateProfileButton.setVisible(false);
+            UserProfileNotifyLabel.setVisible(false);
+
+            ShowUserInfo();
+        }
+    }
 }

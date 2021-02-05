@@ -1,0 +1,120 @@
+#CancelButton {
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 16;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 16;
+}
+
+#CancelButton:hover {
+    -fx-background-color: #2ed2ff;
+    -fx-text-fill: WHITE;
+}
+
+#CloseLabel {
+    -fx-alignment: CENTER;
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 10;
+    -fx-font-size: 11;
+    -fx-font-weight: BOLD;
+}
+
+#CloseLabel:hover {
+    -fx-background-color: #a7fafa;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 10;
+}
+
+#CloseLabel:pressed {
+    -fx-background-color: #2ed2ff;
+    -fx-text-fill: WHITE;
+}
+
+#MinimizeLabel {
+    -fx-alignment: CENTER;
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 10;
+    -fx-font-size: 11;
+    -fx-font-weight: BOLD;
+}
+
+#MinimizeLabel:hover {
+    -fx-background-color: #a7fafa;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 10;
+}
+
+#MinimizeLabel:pressed {
+    -fx-background-color: #2ed2ff;
+    -fx-text-fill: WHITE;
+}
+
+#WritingAnchorPane {
+    -fx-background-color: #f0ffff;
+}
+
+#WritingChooseFileButton {
+    -fx-background-color: #2ed2ff;
+    -fx-background-radius: 16;
+}
+
+#WritingChooseFileLabel {
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 16;
+    -fx-padding: 0 0 0 10;
+}
+
+#WritingCredentialsPane {
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 10;
+}
+
+#WritingProfilePane {
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 10;
+}
+
+#WritingSendButton {
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 16;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 16;
+}
+
+#WritingSendButton:hover {
+    -fx-background-color: #2ed2ff;
+    -fx-text-fill: WHITE;
+}
+
+#WritingWriteHerePane {
+    -fx-background-color: #a7fafa;
+    -fx-background-radius: 0 16 0 0;
+    -fx-border-radius: 0 16 0 0;
+    -fx-padding: 30 0 0 10;
+    -fx-text-fill: #464646;
+}
+
+.context-menu {
+    -fx-padding: 0;
+}
+
+.menu-item {
+    -fx-background-color: #a7fafa;
+    -fx-border-color: #2ed2ff;
+    -fx-padding: 0;
+}
+
+.menu-item .label {
+    -fx-background-color: #a7fafa;
+    -fx-text-fill: #464646;
+}
+
+.menu-item:hover .label {
+    -fx-background-color: #2ed2ff;
+    -fx-text-fill: WHITE;
+}
+
+.separator *.line {
+    -fx-border-color: #2ed2ff;
+    -fx-border-style: SOLID;
+    -fx-border-width: 1;
+}

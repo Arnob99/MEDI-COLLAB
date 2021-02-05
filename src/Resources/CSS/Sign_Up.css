@@ -1,0 +1,67 @@
+#CancelButton {
+    -fx-background-color: #2ed2ff;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+}
+
+#CloseLabel {
+    -fx-alignment: CENTER;
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 10;
+    -fx-font-size: 11;
+    -fx-font-weight: BOLD;
+}
+
+#CloseLabel:hover {
+    -fx-background-color: #a7fafa;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 10;
+}
+
+#CloseLabel:pressed {
+    -fx-background-color: #2ed2ff;
+    -fx-text-fill: WHITE;
+}
+
+#MinimizeLabel {
+    -fx-alignment: CENTER;
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 10;
+    -fx-font-size: 11;
+    -fx-font-weight: BOLD;
+}
+
+#MinimizeLabel:hover {
+    -fx-background-color: #a7fafa;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 10;
+}
+
+#MinimizeLabel:pressed {
+    -fx-background-color: #2ed2ff;
+    -fx-text-fill: WHITE;
+}
+
+#SignUpSignUpButton {
+     -fx-background-radius: 16;
+     -fx-background-color: #2ed2ff;
+     -fx-border-radius: 16;
+ }
+
+#SignUpSignUpPane {
+    -fx-background-color: #a7fafa;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+}
+
+#SignUpUsername {
+    -fx-focus-traversable: TRUE;
+}
+
+.jfx-radio-button {
+    -jfx-selected-color: #2ed2ff;
+}
+
+.root {
+    -fx-background-color: #f0ffff;
+}

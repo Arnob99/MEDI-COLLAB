@@ -1,0 +1,106 @@
+#CancelButton {
+    -fx-background-color: #2ed2ff;
+    -fx-background-radius: 0 16 16 0;
+    -fx-border-radius: 0 16 16 0;
+}
+
+#CloseLabel {
+    -fx-alignment: CENTER;
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 10;
+    -fx-font-size: 11;
+    -fx-font-weight: BOLD;
+}
+
+#CloseLabel:hover {
+    -fx-background-color: #a7fafa;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 10;
+}
+
+#CloseLabel:pressed {
+    -fx-background-color: #2ed2ff;
+    -fx-text-fill: WHITE;
+}
+
+#GoBackButton {
+    -fx-background-color: #2ed2ff;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+}
+
+#MinimizeLabel {
+    -fx-alignment: CENTER;
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 10;
+    -fx-font-size: 11;
+    -fx-font-weight: BOLD;
+}
+
+#MinimizeLabel:hover {
+    -fx-background-color: #a7fafa;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 10;
+}
+
+#MinimizeLabel:pressed {
+    -fx-background-color: #2ed2ff;
+    -fx-text-fill: WHITE;
+}
+
+#UserProfileAddressInfoTextField,
+#UserProfileAgeInfoTextField,
+#UserProfileContactNoInfoTextField,
+#UserProfileDescriptionTextArea,
+#UserProfileEmailInfoTextField {
+    -fx-prompt-text-fill: #464646;
+}
+
+#UserProfileUpdateProfileButton {
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 16;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 16;
+}
+
+#UserProfileUpdateProfileButton:hover {
+    -fx-background-color: #2ed2ff;
+    -fx-text-fill: WHITE;
+}
+
+.jfx-date-picker {
+    -fx-prompt-text-fill: #2ed2ff;
+}
+
+.jfx-date-picker .date-picker-popup {
+    -fx-background-color: #f0ffff;
+}
+
+.jfx-date-picker .date-picker-popup .calendar-grid .day-cell {
+    -fx-text-fill: #464646;
+}
+
+.jfx-date-picker .date-picker-popup .calendar-grid .day-cell:hover {
+    -fx-background-color: #a7fafa;
+    -fx-cursor: hand;
+}
+.jfx-date-picker .date-picker-popup .calendar-grid .day-cell:focused,
+.jfx-date-picker .date-picker-popup .calendar-grid .day-cell:pressed,
+.jfx-date-picker .date-picker-list-view .data-picker-list-cell:selected-year,
+.jfx-date-picker .date-picker-list-view .data-picker-list-cell:pressed {
+    -fx-background-color: #2ed2ff;
+    -fx-text-fill: WHITE;
+}
+
+.jfx-date-picker .jfx-text-field {
+    -fx-font-size: 13;
+    -fx-text-fill: #464646;
+    -fx-prompt-text-fill: #464646;
+    -jfx-focus-color: #2ed2ff;
+    -jfx-label-float: true;
+    -jfx-unfocus-color:#30d6ff80;
+}
+
+.root {
+    -fx-background-color: #f0ffff;
+}

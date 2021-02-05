@@ -1,49 +1,54 @@
 package MAIN;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
+import java.util.Random;
+import java.util.ResourceBundle;
 
-public class Sign_In_Controller {
+public class Sign_In_Controller implements Initializable {
+    @FXML private Label SignInQuoteTextField;
+    @FXML private Label SignInNotifyLabel;
+    @FXML private JFXPasswordField SignInPasswordTextField;
+    @FXML private JFXTextField SignInUsernameTextField;
+
     public String signinusername, signinpassword;
+    public String[] quote = {
+            "There is Nothing More Important than Our\n" +
+                    "Good Health. That's Our Principal Asset.\n" +
+                    "\n- Arlen Specter",
 
-    @FXML
-    private Label CloseLabel;
-    @FXML
-    private Label MinimizeLabel;
-    @FXML
-    private Hyperlink SignInForgotPasswordHyperlink;
-    @FXML
-    private Label SignInNotifyLabel;
-    @FXML
-    private JFXPasswordField SignInPasswordTextField;
-    @FXML
-    private JFXTextField SignInUsernameTextField;
-    @FXML
-    private JFXButton SignInLoginButton;
-    @FXML
-    private JFXButton SignInSignUpButton;
-    @FXML
-    private AnchorPane SignInSignInPane;
+            "It is Health that is Real Wealth and \n" +
+                    "not Pieces of Gold and Silver.\n" +
+                    "\n- Mahatma Gandhi",
 
-    public void init(){
+            "When Diet is Wrong, Medicine is of No Use.\n" +
+                    "When Diet is Correct, Medicine is of No Need.",
 
+            "Health is Like Money. We Never have a True\n" +
+                    "Idea of Its Value Until We Lose It.\n" +
+                    "\n- Josh Billings"
+    };
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        int random = new Random().nextInt(quote.length);
+        SignInQuoteTextField.setText(quote[random]);
     }
 
     public void handleCloseLabelMouseClicked(MouseEvent mouseEvent) {
@@ -88,16 +93,16 @@ public class Sign_In_Controller {
         }
 
         if(alright){
+            SignInNotifyLabel.setText("Logging In");
+            SignInNotifyLabel.setTextFill(Color.WHITE);
             Medi_collab.User_Info_Resultset = resultSet;
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Main_Menu.fxml"));
 
             Parent root = fxmlLoader.load();
 
-            ((Stage) ((Node)actionEvent.getSource()).getScene().getWindow()).close();
-
             Scene scene = new Scene(root);
-            scene.getStylesheets().add(getClass().getResource(Medi_collab.stylesheetaddress).toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("/Resources/CSS/Main_Menu.css").toExternalForm());
             scene.setFill(Color.TRANSPARENT);
 
             Stage stage = new Stage();
@@ -106,8 +111,7 @@ public class Sign_In_Controller {
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.show();
 
-            Main_Menu_Controller main_menu_controller = fxmlLoader.getController();
-            main_menu_controller.init();
+            ((Stage) ((Node)actionEvent.getSource()).getScene().getWindow()).close();
         }
     }
 
@@ -117,7 +121,7 @@ public class Sign_In_Controller {
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
 
         Scene scene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
-        scene.getStylesheets().add(getClass().getResource(Medi_collab.stylesheetaddress).toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/Resources/CSS/Sign_Up.css").toExternalForm());
         scene.setFill(Color.TRANSPARENT);
 
         stage.setScene(scene);

@@ -7,14 +7,35 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.StringConverter;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Medi_collab extends Application {
     public static ResultSet User_Info_Resultset = null;
-    public static String stylesheetaddress = "/Resources/Medi_collab_Stylesheet.css", role = "";
-//    public static String dbusername, dbpassword;
+    public static String role = "";
+    public static StringConverter<LocalDate> localDateStringConverter = new StringConverter<>() {
+        final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
+        @Override
+        public String toString(LocalDate localDate) {
+            if (localDate != null)
+                return dateTimeFormatter.format(localDate);
+            else
+                return "";
+        }
+
+        @Override
+        public LocalDate fromString(String s) {
+            if (s != null && !s.isEmpty())
+                return LocalDate.parse(s, dateTimeFormatter);
+            else
+                return null;
+        }
+    };
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -23,11 +44,12 @@ public class Medi_collab extends Application {
         Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource(Medi_collab.stylesheetaddress).toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/Resources/CSS/Sign_In.css").toExternalForm());
         scene.setFill(Color.TRANSPARENT);
 
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);
+//        stage.setMaximized(true);
         stage.show();
     }
 
@@ -38,6 +60,8 @@ public class Medi_collab extends Application {
             return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XE", "system", "2580");
         }
         catch (ClassNotFoundException | SQLException e) {
+            System.out.println("DATABASE CONNECTION COULD NOT BE ESTABLISHED!");
+
             e.printStackTrace();
 
             return null;

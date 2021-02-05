@@ -1,73 +1,77 @@
 package MAIN;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Rectangle2D;
+import javafx.geometry.Side;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.CustomMenuItem;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.*;
+import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class Writing_Controller {
+public class Writing_Controller implements Initializable {
 
-    @FXML
-    private AnchorPane WritingCredentialsPane;
-    @FXML
-    private AnchorPane WritingWriteHerePane;
-    @FXML
-    private AnchorPane WritingAnchorPane;
-    @FXML
-    private JFXButton CancelButton;
-    @FXML
-    private JFXButton WritingSendButton;
-    @FXML
-    private Label WritingWritingLabel;
-    @FXML
-    private JFXTextArea WritingWriteHereTextArea;
-    @FXML
-    private JFXTextArea WritingDescriptionTextArea;
-    @FXML
-    private JFXTextField WritingSubjectTextField;
-    @FXML
-    private Label WritingNotifyLabel;
-    @FXML
-    private JFXTextField WritingToTextField;
-    @FXML
-    private Label WritingChooseFileLabel;
+    @FXML private AnchorPane WritingProfilePane;
+    @FXML private Label ProfileNameLabel;
+    @FXML private Label ProfileEmailLabel;
+    @FXML private Label ProfileContactLabel;
+    @FXML private Label ProfileAddress;
+    @FXML private Label ProfileAddressLabel;
+    @FXML private JFXButton CancelButton;
+    @FXML private JFXButton WritingSendButton;
+    @FXML private JFXTextArea WritingWriteHereTextArea;
+    @FXML private JFXTextArea WritingDescriptionTextArea;
+    @FXML private JFXTextField WritingSubjectTextField;
+    @FXML private Label WritingNotifyLabel;
+    @FXML private JFXTextField WritingToTextField;
+    @FXML private Label WritingChooseFileLabel;
 
     public File file = null;
 
-    public void init(){
-        if(Medi_collab.role.equals("Doctor"))
-            WritingWritingLabel.setText("Prescription");
-        else if(Medi_collab.role.equals("Staff"))
-            WritingWritingLabel.setText("Test Result");
-        else
-            System.out.println("Serious problem");
+    Statement statement, statement1;
+    ContextMenu contextMenu;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        contextMenu = new ContextMenu();
+
+        try {
+            statement = Objects.requireNonNull(Medi_collab.connection()).createStatement();
+            statement1 = Objects.requireNonNull(Medi_collab.connection()).createStatement();
+        }
+        catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        WritingProfilePane.setVisible(false);
 
         Rectangle2D screen = Screen.getPrimary().getVisualBounds();
 
-        WritingSendButton.setLayoutX(screen.getWidth()/2 - 121);
-        CancelButton.setLayoutX(screen.getWidth()/2 + 1);
+        WritingSendButton.setLayoutX(screen.getWidth()/2.0 - 130);
+        CancelButton.setLayoutX(screen.getWidth()/2.0 + 10);
     }
 
     public void handleCloseLabel(MouseEvent mouseEvent) {
@@ -75,7 +79,7 @@ public class Writing_Controller {
         exitDialogue.OpenDialogue();
     }
 
-    public void handleCancelButton(ActionEvent actionEvent) throws IOException {
+    public void handleCancelButton(ActionEvent actionEvent) {
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         stage.close();
     }
@@ -85,63 +89,53 @@ public class Writing_Controller {
     }
 
     public void handleWritingSendButton(ActionEvent actionEvent) {
-        String sender = null;
+        String sender;
         boolean alright = true;
         try {
             sender = Medi_collab.User_Info_Resultset.getString("USERNAME");
             String receiver = WritingToTextField.getText();
 
-            PreparedStatement preparedStatement = Medi_collab.connection().prepareStatement("INSERT INTO SHARED_FILES " +
-                    "VALUES (?, ?, ?, ?, ?, ?, SYSDATE)");
+            PreparedStatement preparedStatement = Objects.requireNonNull(Medi_collab.connection()).prepareStatement("INSERT INTO SHARED_FILES " +
+                    "VALUES (?, ?, ?, ?, ?, SYSDATE, ?, ?, ?)");
 
-            FileInputStream fileInputStream = null;
+            FileInputStream fileInputStream;
 
             preparedStatement.setString(1, sender);
             preparedStatement.setString(2, receiver);
             preparedStatement.setString(3, WritingSubjectTextField.getText());
 
-            File temp = null;
-            FileWriter fileWriter = null;
+            File temp = new File("temp.txt");
+            FileWriter fileWriter = new FileWriter(temp, true);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            PrintWriter printWriter = new PrintWriter(bufferedWriter);
 
             if(WritingDescriptionTextArea.getText().strip().length() != 0){
-                temp = new File("temp_description.txt");
-
-                fileWriter = new FileWriter(temp);
-                fileWriter.write(WritingDescriptionTextArea.getText().strip());
-                fileWriter.close();
-
-                fileInputStream = new FileInputStream(temp);
-                preparedStatement.setBlob(4, fileInputStream);
-                fileInputStream.close();
-
-                temp.delete();
+                printWriter.write(WritingDescriptionTextArea.getText().strip() + "\n\n");
             }
-            else
-                preparedStatement.setBlob(4, InputStream.nullInputStream());
 
-            temp = new File("temp_writing.txt");
-
-            fileWriter = new FileWriter(temp);
-            fileWriter.write(WritingWriteHereTextArea.getText().strip());
-            fileWriter.close();
+            printWriter.write(WritingWriteHereTextArea.getText().strip());
+            printWriter.close();
 
             fileInputStream = new FileInputStream(temp);
-            preparedStatement.setBlob(5, fileInputStream);
+            preparedStatement.setBlob(4, fileInputStream);
             fileInputStream.close();
 
             temp.delete();
 
             if(file != null) {
                 fileInputStream = new FileInputStream(file);
-                preparedStatement.setBlob(6, fileInputStream);
+                preparedStatement.setBlob(5, fileInputStream);
                 fileInputStream.close();
 
                 file.delete();
             }
             else
-                preparedStatement.setBlob(6, InputStream.nullInputStream());
+                preparedStatement.setBlob(5, InputStream.nullInputStream());
 
-            Statement statement = Medi_collab.connection().createStatement();
+            preparedStatement.setString(6, Medi_collab.role);
+            preparedStatement.setString(7, "Patient");
+            preparedStatement.setString(8, sender);
+
             ResultSet resultSet = statement.executeQuery("SELECT USERNAME FROM USERS_TABLE " +
                     "WHERE USERNAME = '" + receiver + "' AND ROLE = 'Patient'");
 
@@ -176,6 +170,65 @@ public class Writing_Controller {
 
         if(file != null){
             WritingChooseFileLabel.setText(file.getName());
+        }
+    }
+
+    public void handleWritingToTextField() throws SQLException {
+        if (contextMenu.isShowing())
+            contextMenu.hide();
+
+        contextMenu.getItems().clear();
+
+        String s = WritingToTextField.getText();
+        if(!s.isEmpty()) {
+            ResultSet resultSet = statement.executeQuery("SELECT USERNAME FROM USERS_TABLE " +
+                    "WHERE USERNAME LIKE '%" + s + "%' AND ROLE = 'Patient' " +
+                    "ORDER BY USERNAME");
+
+            List<String> stringList = new LinkedList<>();
+
+            while (resultSet.next())
+                stringList.add(resultSet.getString("USERNAME"));
+
+            List<CustomMenuItem> customMenuItemList = new LinkedList<>();
+
+            for (String s1 : stringList) {
+                Label label = new Label(s1);
+                label.setPrefWidth(WritingToTextField.getPrefWidth());
+                label.setFont(new Font(13));
+                label.setPadding(new Insets(5));
+
+                CustomMenuItem customMenuItem = new CustomMenuItem(label, true);
+
+                customMenuItemList.add(customMenuItem);
+
+                customMenuItem.setOnAction(actionEvent -> {
+                    WritingToTextField.setText(s1);
+                    WritingToTextField.positionCaret(s1.length());
+
+                    contextMenu.hide();
+
+                    ResultSet resultSet1;
+                    try {
+                        resultSet1 = statement1.executeQuery("SELECT * FROM USERS_TABLE " +
+                                "WHERE USERNAME = '" + s1 + "'");
+                        resultSet1.next();
+
+                        WritingProfilePane.setVisible(true);
+                        ProfileNameLabel.setText(resultSet1.getString("FIRSTNAME") + " " + resultSet1.getString("LASTNAME"));
+                        ProfileEmailLabel.setText(resultSet1.getString("EMAIL"));
+                        ProfileContactLabel.setText(resultSet1.getString("CONTACT"));
+                        ProfileAddressLabel.setText(resultSet1.getString("ADDRESS"));
+                        ProfileAddressLabel.setWrapText(true);
+                    }
+                    catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                    }
+                });
+            }
+
+            contextMenu.getItems().addAll(customMenuItemList);
+            contextMenu.show(WritingToTextField, Side.BOTTOM, 0, 0);
         }
     }
 }

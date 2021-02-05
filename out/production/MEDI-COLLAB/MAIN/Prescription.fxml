@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MAIN.Prescription_Controller">
+   <children>
+      <Label fx:id="PrescriptionLabel" alignment="CENTER" layoutX="291.0" layoutY="9.0" prefHeight="70.0" prefWidth="418.0" text="Prescription" textFill="#464646" AnchorPane.topAnchor="3.0">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Label fx:id="CloseLabel" alignment="CENTER" layoutX="958.0" layoutY="14.0" onMouseClicked="#handleCloseLabel" prefHeight="20.0" prefWidth="40.0" text="X" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <JFXButton fx:id="GoBackButton" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="20.0" onAction="#handleGoBackButton" ripplerFill="BLACK" text="&lt;" textFill="WHITE" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXListView fx:id="PrescriptionListView" focusTraversable="false" layoutX="14.0" layoutY="67.0" prefWidth="300.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="80.0" />
+      <JFXListView fx:id="PrescriptionMessageListView" layoutX="314.0" layoutY="103.0" prefWidth="670.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="316.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="80.0" />
+      <Label fx:id="MinimizeLabel" alignment="CENTER" layoutX="930.0" layoutY="14.0" onMouseClicked="#handleMinimizeLabel" prefHeight="20.0" prefWidth="30.0" text="—" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0" />
+      <JFXButton fx:id="PrescriptionComposeButton" buttonType="RAISED" layoutX="886.0" layoutY="454.0" onAction="#handleComposeButton" prefWidth="150.0" ripplerFill="BLACK" text="Compose" textFill="#464646" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

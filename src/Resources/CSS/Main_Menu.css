@@ -1,0 +1,70 @@
+#CloseLabel {
+    -fx-alignment: CENTER;
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 10;
+    -fx-font-size: 11;
+    -fx-font-weight: BOLD;
+}
+
+#CloseLabel:hover {
+    -fx-background-color: #a7fafa;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 10;
+}
+
+#CloseLabel:pressed {
+    -fx-background-color: #2ed2ff;
+    -fx-text-fill: WHITE;
+}
+
+#MainMenuMyProfileButton,
+#MainMenuSetAppointmentButton,
+#MainMenuAppointmentListButton,
+#MainMenuPrescriptionButton,
+#MainMenuTestResultButton {
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 16;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 16;
+}
+
+#MainMenuMyProfileButton:hover,
+#MainMenuSetAppointmentButton:hover,
+#MainMenuAppointmentListButton:hover,
+#MainMenuPrescriptionButton:hover,
+#MainMenuTestResultButton:hover {
+    -fx-background-color: #2ed2ff;
+    -fx-text-fill: WHITE;
+}
+
+#MainMenuComposeButton {
+    -fx-background-color: #2ed2ff;
+    -fx-background-radius: 16;
+}
+
+#MainMenuSignOutButton {
+    -fx-background-color: #2ed2ff;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+}
+
+#MinimizeLabel {
+    -fx-alignment: CENTER;
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 10;
+    -fx-font-size: 11;
+    -fx-font-weight: BOLD;
+}
+
+#MinimizeLabel:hover {
+    -fx-background-color: #a7fafa;
+}
+
+#MinimizeLabel:pressed {
+    -fx-background-color: #2ed2ff;
+    -fx-text-fill: WHITE;
+}
+
+.root {
+    -fx-background-color: #f0ffff;
+}

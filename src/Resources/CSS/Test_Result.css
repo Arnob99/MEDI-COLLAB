@@ -1,0 +1,88 @@
+#CloseLabel {
+    -fx-alignment: CENTER;
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 10;
+    -fx-font-size: 11;
+    -fx-font-weight: BOLD;
+}
+
+#CloseLabel:hover {
+    -fx-background-color: #a7fafa;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 10;
+}
+
+#CloseLabel:pressed {
+    -fx-background-color: #2ed2ff;
+    -fx-text-fill: WHITE;
+}
+
+#GoBackButton {
+    -fx-background-color: #2ed2ff;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+}
+
+#MinimizeLabel {
+    -fx-alignment: CENTER;
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 10;
+    -fx-font-size: 11;
+    -fx-font-weight: BOLD;
+}
+
+#MinimizeLabel:hover {
+    -fx-background-color: #a7fafa;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 10;
+}
+
+#MinimizeLabel:pressed {
+    -fx-background-color: #2ed2ff;
+    -fx-text-fill: WHITE;
+}
+
+#TestResultComposeButton {
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 10;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius:  10;
+}
+
+#TestResultComposeButton:hover {
+    -fx-background-color: #2ed2ff;
+    -fx-text-fill: WHITE;
+}
+
+#TestResultListView,
+#TestResultMessageListView {
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 10;
+    -fx-border-color: #2ed2ff;
+    -fx-border-radius: 10;
+    -fx-border-width: 0 1 0 1;
+}
+
+#TestResultListView .list-cell,
+#TestResultMessageListView .list-cell {
+    -fx-background-color: TRANSPARENT;
+    -fx-background-radius: 10;
+    -fx-focus-traversable: false;
+    -fx-padding: 1;
+}
+
+#TestResultListView .list-cell:hover,
+#TestResultMessageListView .list-cell:hover,
+#TestResultListView .list-cell:focused {
+    -fx-background-color: #a7fafa;
+}
+
+.separator *.line {
+    -fx-border-color: #cccccc;
+    -fx-border-style: SOLID;
+    -fx-border-width: .5;
+}
+
+.root {
+    -fx-background-color: #f0ffff;
+}

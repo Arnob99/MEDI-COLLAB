@@ -1,59 +1,38 @@
 package MAIN;
 
-import com.jfoenix.controls.*;
-import javafx.application.Application;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXRadioButton;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Collection;
+import java.util.Objects;
 
 public class Sign_Up_Controller {
-    @FXML
-    private JFXTextField SignUpDateofBirth;
-    @FXML
-    private JFXTextField SignUpAddress;
-    @FXML
-    private JFXTextField SignUpContactNo;
-    @FXML
-    private JFXTextField SignUpUsername;
-    @FXML
-    private JFXPasswordField SignUpConfirmPassword;
-    @FXML
-    private JFXRadioButton SignUpDoctorRadioButton;
-    @FXML
-    private JFXTextField SignUpEmailAddress;
-    @FXML
-    private JFXTextField SignUpFirstName;
-    @FXML
-    private JFXTextField SignUpLastName;
-    @FXML
-    private JFXRadioButton SignUpMedicalStaffRadioButton;
-    @FXML
-    private Label SignUpNotifyLabel;
-    @FXML
-    private JFXPasswordField SignUpPassword;
-    @FXML
-    private JFXRadioButton SignUpPatientRadioButton;
+    @FXML private JFXTextField SignUpUsername;
+    @FXML private JFXPasswordField SignUpConfirmPassword;
+    @FXML private JFXRadioButton SignUpDoctorRadioButton;
+    @FXML private JFXTextField SignUpFirstName;
+    @FXML private JFXTextField SignUpLastName;
+    @FXML private JFXRadioButton SignUpMedicalStaffRadioButton;
+    @FXML private Label SignUpNotifyLabel;
+    @FXML private JFXPasswordField SignUpPassword;
+    @FXML private JFXRadioButton SignUpPatientRadioButton;
 
-    public String username, contact, address, conpass, dob, email, fname, lname, pass, role;
+    public String username, contact, address, confirmPass, dob, email, firstName, lastName, pass, role, description;
     public boolean signed_up;
 
     public void handleCloseLabelMouseClicked(MouseEvent mouseEvent) {
@@ -71,37 +50,28 @@ public class Sign_Up_Controller {
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
 
         Scene scene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
-        scene.getStylesheets().add(getClass().getResource(Medi_collab.stylesheetaddress).toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/Resources/CSS/Sign_In.css").toExternalForm());
         scene.setFill(Color.TRANSPARENT);
 
         stage.setScene(scene);
         stage.show();
     }
 
-    public void handleSignUpSignUpButton(ActionEvent actionEvent) throws IOException {
+    public void handleSignUpSignUpButton(ActionEvent actionEvent) throws IOException, SQLException {
         boolean alright = true;
         signed_up = false;
+        username = firstName = lastName = pass = confirmPass = dob = address = contact = email = description = "";
 
-        Statement statement = null;
-        try {
-            statement = Medi_collab.connection().createStatement();
-        }
-        catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+        Statement statement = Objects.requireNonNull(Medi_collab.connection()).createStatement();
 
         SignUpNotifyLabel.setText("");
 
         username = SignUpUsername.getText().strip();
-        try {
-            ResultSet resultSet = statement.executeQuery("select * from USERS_TABLE where USERNAME = '" + username + "'");
-            if(resultSet.next()){
-                SignUpNotifyLabel.setText("Sorry, this username is already taken!");
-                alright = false;
-            }
-        }
-        catch (SQLException throwables) {
-            throwables.printStackTrace();
+
+        ResultSet resultSet = statement.executeQuery("select * from USERS_TABLE where USERNAME = '" + username + "'");
+        if(resultSet.next()){
+            SignUpNotifyLabel.setText("Sorry, this username is already taken!");
+            alright = false;
         }
 
         pass = SignUpPassword.getText();
@@ -110,37 +80,25 @@ public class Sign_Up_Controller {
             alright = false;
         }
 
-        conpass = SignUpConfirmPassword.getText();
-        if(conpass.length() == 0 && alright) {
+        confirmPass = SignUpConfirmPassword.getText();
+        if(confirmPass.length() == 0 && alright) {
             SignUpNotifyLabel.setText("You must fill up all the fields.");
             alright = false;
         }
 
-        if(!pass.equals(conpass)){
+        if(!pass.equals(confirmPass)){
             SignUpNotifyLabel.setText("Password and Confirm Password must be same!");
             alright = false;
         }
 
-        fname = SignUpFirstName.getText().strip();
-        if(fname.length() == 0 && alright) {
+        firstName = SignUpFirstName.getText().strip();
+        if(firstName.length() == 0 && alright) {
             SignUpNotifyLabel.setText("You must fill up all the fields.");
             alright = false;
         }
 
-        lname = SignUpLastName.getText().strip();
-        if(lname.length() == 0 && alright) {
-            SignUpNotifyLabel.setText("You must fill up all the fields.");
-            alright = false;
-        }
-
-        email = SignUpEmailAddress.getText().strip();
-        if(email.length() == 0 && alright) {
-            SignUpNotifyLabel.setText("You must fill up all the fields.");
-            alright = false;
-        }
-
-        dob = SignUpDateofBirth.getText().strip();
-        if(dob.length() == 0 && alright){
+        lastName = SignUpLastName.getText().strip();
+        if(lastName.length() == 0 && alright) {
             SignUpNotifyLabel.setText("You must fill up all the fields.");
             alright = false;
         }
@@ -156,37 +114,24 @@ public class Sign_Up_Controller {
             alright = false;
         }
 
-        address = SignUpAddress.getText().strip();
-        if(address.length() == 0 && alright){
-            SignUpNotifyLabel.setText("You must fill up all the fields.");
-            alright = false;
-        }
-
-        contact = SignUpContactNo.getText().strip();
-        if(contact.length() == 0 && alright){
-            SignUpNotifyLabel.setText("You must fill up all the fields.");
-            alright = false;
-        }
-
         if(alright){
-            try {
-                statement.executeQuery("INSERT INTO USERS_TABLE VALUES (" +
-                        "'" + username + "', " +
-                        "'" + pass +"', " +
-                        "'" + fname + "', " +
-                        "'" + lname + "', " +
-                        "TO_DATE('" + dob +"', 'dd-mm-yyyy'), " +
-                        "'" + email + "', " +
-                        "'" + role + "', " +
-                        "'" + address + "', " +
-                        "'" + contact + "')");
-                signed_up = true;
-                SignUpNotifyLabel.setText("Signed up successfully. Login with your username and password.");
-            }
-            catch (SQLException throwables) {
-                throwables.printStackTrace();
-                SignUpNotifyLabel.setText(throwables.getMessage());
-            }
+            PreparedStatement preparedStatement = Objects.requireNonNull(Medi_collab.connection()).prepareStatement("INSERT INTO USERS_TABLE " +
+                    "VALUES (?, ?, ?, ?, null, ?, ?, ?, ?, ?)");
+
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, pass);
+            preparedStatement.setString(3, firstName);
+            preparedStatement.setString(4, lastName);
+            preparedStatement.setString(5, email);
+            preparedStatement.setString(6, role);
+            preparedStatement.setString(7, address);
+            preparedStatement.setString(8, contact);
+            preparedStatement.setString(9, description);
+
+            preparedStatement.executeQuery();
+
+            signed_up = true;
+            SignUpNotifyLabel.setText("Signed up successfully. Login with your username and password.");
         }
 
         if(signed_up) {
@@ -195,7 +140,7 @@ public class Sign_Up_Controller {
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
             Scene scene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
-            scene.getStylesheets().add(getClass().getResource(Medi_collab.stylesheetaddress).toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("/Resources/CSS/Main_Menu.css").toExternalForm());
             scene.setFill(Color.TRANSPARENT);
 
             stage.setScene(scene);

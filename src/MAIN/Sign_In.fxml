@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="1000.0" style="-fx-background-radius: 10;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MAIN.Sign_In_Controller">
+<AnchorPane prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MAIN.Sign_In_Controller">
    <children>
-      <AnchorPane fx:id="SignInSignInPane" layoutX="611.0" layoutY="65.0" prefHeight="370.0" prefWidth="324.0">
+      <AnchorPane fx:id="SignInSignInPane" layoutX="611.0" layoutY="65.0" prefHeight="370.0" prefWidth="324.0" AnchorPane.bottomAnchor="65.0" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="65.0">
          <children>
             <Label layoutX="116.0" layoutY="14.0" text="Sign In" textFill="#464646">
                <font>
@@ -37,26 +37,26 @@
                   <Font size="11.0" />
                </font>
             </Label>
-            <JFXButton fx:id="SignInLoginButton" buttonType="RAISED" layoutX="48.0" layoutY="250.0" onAction="#handleSignInLoginButton" prefWidth="228.0" ripplerFill="BLACK" text="Login" textFill="WHITE">
+            <JFXButton fx:id="SignInLoginButton" buttonType="RAISED" defaultButton="true" layoutX="48.0" layoutY="250.0" onAction="#handleSignInLoginButton" prefWidth="228.0" ripplerFill="BLACK" text="Login" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </JFXButton>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="89.0" layoutY="89.0" prefHeight="322.0" prefWidth="410.0">
+      <AnchorPane layoutX="90.0" layoutY="89.0" prefHeight="322.0" prefWidth="410.0" AnchorPane.bottomAnchor="89.0" AnchorPane.leftAnchor="89.0" AnchorPane.topAnchor="89.0">
          <children>
             <Label alignment="CENTER" layoutX="10.0" layoutY="14.0" prefHeight="70.0" prefWidth="390.0" text="Welcome to MediCollab" textFill="#464646">
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
-            <Label layoutX="26.0" layoutY="101.0" prefHeight="90.0" prefWidth="358.0" text="&#10;" textFill="#464646">
+            <Label fx:id="SignInQuoteTextField" layoutX="26.0" layoutY="84.0" prefHeight="176.0" prefWidth="380.0" textFill="#464646">
                <font>
-                  <Font size="13.0" />
+                  <Font name="Maiandra GD" size="16.0" />
                </font>
             </Label>
-            <JFXButton fx:id="SignInSignUpButton" buttonType="RAISED" focusTraversable="false" layoutX="26.0" layoutY="226.0" onAction="#handleSignInSignUpButton" prefWidth="165.0" ripplerFill="BLACK" text="Sign Up" textFill="WHITE">
+            <JFXButton fx:id="SignInSignUpButton" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="278.0" onAction="#handleSignInSignUpButton" prefWidth="165.0" ripplerFill="BLACK" text="Sign Up" textFill="#464646">
                <font>
                   <Font size="14.0" />
                </font>
