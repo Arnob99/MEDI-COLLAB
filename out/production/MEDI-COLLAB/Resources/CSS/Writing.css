@@ -93,6 +93,26 @@
     -fx-text-fill: #464646;
 }
 
+.context-menu {
+    -fx-padding: 0;
+}
+
+.menu-item {
+    -fx-background-color: #a7fafa;
+    -fx-border-color: #2ed2ff;
+    -fx-padding: 0;
+}
+
+.menu-item .label {
+    -fx-background-color: #a7fafa;
+    -fx-text-fill: #464646;
+}
+
+.menu-item:hover .label {
+    -fx-background-color: #2ed2ff;
+    -fx-text-fill: WHITE;
+}
+
 .separator *.line {
     -fx-border-color: #2ed2ff;
     -fx-border-style: SOLID;
