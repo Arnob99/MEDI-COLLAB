@@ -23,7 +23,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="WritingCredentialsPane" layoutX="60.0" layoutY="67.0" prefWidth="616.0" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="365.0" AnchorPane.topAnchor="60.0">
+      <AnchorPane fx:id="WritingCredentialsPane" layoutX="60.0" layoutY="67.0" prefWidth="616.0" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="465.0" AnchorPane.topAnchor="60.0">
          <children>
             <JFXTextField fx:id="WritingToTextField" focusColor="#2ed2ff" labelFloat="true" layoutX="14.0" layoutY="14.0" onKeyTyped="#handleWritingToTextField" prefHeight="25.0" prefWidth="296.0" promptText="To" unFocusColor="#30d6ff80" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
                <font>
@@ -35,7 +35,7 @@
                   <Font size="13.0" />
                </font>
             </JFXTextField>
-            <JFXTextArea fx:id="WritingDescriptionTextArea" focusColor="#2ed2ff" focusTraversable="false" labelFloat="true" layoutX="14.0" layoutY="124.0" prefHeight="165.0" prefWidth="296.0" promptText="Description (Optional)" unFocusColor="#30d6ff80" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="124.0">
+            <JFXTextArea fx:id="WritingDescriptionTextArea" focusColor="#2ed2ff" focusTraversable="false" labelFloat="true" layoutX="14.0" layoutY="124.0" prefHeight="165.0" prefWidth="296.0" promptText="Comments" unFocusColor="#30d6ff80" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="124.0">
                <font>
                   <Font size="13.0" />
                </font>
@@ -68,9 +68,9 @@
             <Font size="14.0" />
          </font>
       </JFXButton>
-      <AnchorPane fx:id="WritingProfilePane" layoutX="740.0" layoutY="60.0" prefHeight="200.0" prefWidth="300.0" AnchorPane.bottomAnchor="95.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="60.0">
+      <AnchorPane fx:id="WritingProfilePane" layoutX="740.0" layoutY="60.0" prefHeight="200.0" prefWidth="400.0" AnchorPane.bottomAnchor="95.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="60.0">
          <children>
-            <ImageView fitHeight="130.0" layoutX="85.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="14.0">
+            <ImageView fitHeight="130.0" layoutX="135.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="14.0">
                <image>
                   <Image url="@../Resources/Images/default_user_icon.png" />
                </image>

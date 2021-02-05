@@ -38,7 +38,6 @@ public class Writing_Controller implements Initializable {
     @FXML private Label ProfileNameLabel;
     @FXML private Label ProfileEmailLabel;
     @FXML private Label ProfileContactLabel;
-    @FXML private Label ProfileAddress;
     @FXML private Label ProfileAddressLabel;
     @FXML private JFXButton CancelButton;
     @FXML private JFXButton WritingSendButton;
