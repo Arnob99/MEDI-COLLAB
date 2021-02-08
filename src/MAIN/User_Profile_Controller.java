@@ -24,6 +24,7 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
@@ -173,7 +174,7 @@ public class User_Profile_Controller implements Initializable {
             Statement statement = Objects.requireNonNull(Medi_collab.connection()).createStatement();
 
             String user = Medi_collab.User_Info_Resultset.getString("USERNAME"),
-                    newdob = UserProfileDateofBirthInfoDatePicker.getValue().toString(),
+                    newdob = new SimpleDateFormat("dd-MM-yyyy").format(Medi_collab.User_Info_Resultset.getDate("DATEOFBIRTH")),
                     newemail = UserProfileEmailInfoTextField.getText().strip(),
                     newaddress = UserProfileAddressInfoTextField.getText().strip(),
                     newcontact = UserProfileContactNoInfoTextField.getText().strip(),

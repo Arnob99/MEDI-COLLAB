@@ -30,7 +30,7 @@ public class ApprovalDialogue extends Stage {
         initStyle(StageStyle.UNDECORATED);
         initModality(Modality.APPLICATION_MODAL);
 
-        Rectangle bg = new Rectangle(400, 200, Color.valueOf("f0ffff"));
+        Rectangle bg = new Rectangle(450, 250, Color.valueOf("f0ffff"));
         bg.setStroke(Color.valueOf("#464646"));
         bg.setStrokeWidth(2);
         bg.setStrokeType(StrokeType.INSIDE);
@@ -48,7 +48,7 @@ public class ApprovalDialogue extends Stage {
 
         Label label = new Label(s);
         label.setPrefWidth(bg.getWidth() - imageView.getFitWidth() - 42);
-        label.setStyle("-fx-font-size: 12;  -fx-text-fill: #464646;" +
+        label.setStyle("-fx-font-size: 14;  -fx-text-fill: #464646;" +
                 "-fx-wrap-text: TRUE;");
 
         HBox dialogue = new HBox(10, imageView, new Separator(Orientation.VERTICAL), label);
@@ -64,7 +64,7 @@ public class ApprovalDialogue extends Stage {
         OK.setButtonType(JFXButton.ButtonType.RAISED);
         OK.setRipplerFill(Color.BLACK);
         OK.setTranslateX(bg.getWidth()/2.0 - 50);
-        OK.setTranslateY(bg.getHeight() - 40);
+        OK.setTranslateY(bg.getHeight() - 60);
         OK.setDefaultButton(true);
         OK.setOnMouseEntered(mouseEvent -> {
             OK.setStyle("-fx-background-color: #2ed2ff; -fx-background-radius: 16;" +

@@ -32,6 +32,32 @@ public class Main_Menu_Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+//        try {
+//            if (Medi_collab.User_Info_Resultset.getDate("DATEOFBIRTH") == null ||
+//                    Medi_collab.User_Info_Resultset.getString("EMAIL") == null ||
+//                    Medi_collab.User_Info_Resultset.getString("ADDRESS") == null ||
+//                    Medi_collab.User_Info_Resultset.getString("CONTACT") == null ||
+//                    Medi_collab.User_Info_Resultset.getString("DESCRIPTION") == null) {
+//                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("User_Profile.fxml"));
+//
+//                Parent root = fxmlLoader.load();
+//
+//                Stage stage = new Stage();
+//
+//                Scene scene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
+//                scene.getStylesheets().add(getClass().getResource("/Resources/CSS/User_Profile.css").toExternalForm());
+//                scene.setFill(Color.TRANSPARENT);
+//
+//                stage.setScene(scene);
+//                stage.setMaximized(true);
+//                stage.showAndWait();
+//            }
+//
+//        }
+//        catch (SQLException | IOException throwables) {
+//            throwables.printStackTrace();
+//        }
+
         Rectangle2D screen = Screen.getPrimary().getVisualBounds();
 
         MainMenuMediCollabLabel.setLayoutX(screen.getWidth()/2 - MainMenuMediCollabLabel.getPrefWidth()/2);

@@ -140,7 +140,7 @@ public class Sign_Up_Controller {
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
             Scene scene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
-            scene.getStylesheets().add(getClass().getResource("/Resources/CSS/Main_Menu.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("/Resources/CSS/Sign_In.css").toExternalForm());
             scene.setFill(Color.TRANSPARENT);
 
             stage.setScene(scene);
